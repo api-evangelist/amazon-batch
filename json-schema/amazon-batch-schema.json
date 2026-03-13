@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.apievangelist.com/amazon-batch/job-definition",
+  "title": "AWS Batch Job Definition",
+  "description": "Schema defining the structure of an AWS Batch job definition resource, including container properties, retry strategy, timeout, scheduling, and resource requirements.",
+  "type": "object",
+  "required": [
+    "jobDefinitionName",
+    "type"
+  ],
+  "properties": {
+    "jobDefinitionName": {
+      "type": "string",
+      "description": "The name of the job definition."
+    },
+    "jobDefinitionArn": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) for the job definition."
+    },
+    "revision": {
+      "type": "integer",
+      "description": "The revision of the job definition."
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the job definition."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "container",
+        "multinode"
+      ],
+      "description": "The type of job definition."
+    },
+    "schedulingPriority": {
+      "type": "integer",
+      "description": "The scheduling priority of the job definition."
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Default parameters or parameter substitution placeholders in the job definition."
+    },
+    "retryStrategy": {
+      "$ref": "#/$defs/RetryStrategy"
+    },
+    "containerProperties": {
+      "$ref": "#/$defs/ContainerProperties"
+    },
+    "nodeProperties": {
+      "$ref": "#/$defs/NodeProperties"
+    },
+    "timeout": {
+      "$ref": "#/$defs/JobTimeout"
+    },
+    "tags": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The tags that are applied to the job definition."
+    },
+    "platformCapabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "EC2",
+          "FARGATE"
+        ]
+      },
+      "description": "The platform capabilities required by the job definition."
+    },
+    "propagateTags": {
+      "type": "boolean",
+      "description": "Whether to propagate tags from the job definition to the job."
+    }
+  },
+  "$defs": {
+    "RetryStrategy": {
+      "type": "object",
+      "description": "The retry strategy for failed jobs.",
+      "properties": {
+        "attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "The number of times to retry a failed job."
+        },
+        "evaluateOnExit": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "onStatusReason": {
+                "type": "string"
+              },
+              "onReason": {
+                "type": "string"
+              },
+              "onExitCode": {
+                "type": "string"
+              },
+              "action": {
+                "type": "string",
+                "enum": [
+                  "RETRY",
+                  "EXIT"
+                ]
+              }
+            },
+            "required": [
+              "action"
+            ]
+          }
+        }
+      }
+    },
+    "ContainerProperties": {
+      "type": "object",
+      "description": "Container properties for a single-node job.",
+      "properties": {
+        "image": {
+          "type": "string",
+          "description": "The image used to start a container."
+        },
+        "command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The command that is passed to the container."
+        },
+        "jobRoleArn": {
+          "type": "string",
+          "description": "The ARN of the IAM role for the container."
+        },
+        "executionRoleArn": {
+          "type": "string",
+          "description": "The ARN of the execution role for Fargate tasks."
+        },
+        "environment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "The environment variables to pass to a container."
+        },
+        "resourceRequirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "value",
+              "type"
+            ],
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "GPU",
+                  "VCPU",
+                  "MEMORY"
+                ]
+              }
+            }
+          },
+          "description": "The type and amount of resources to assign to a container."
+        },
+        "mountPoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "containerPath": {
+                "type": "string"
+              },
+              "readOnly": {
+                "type": "boolean"
+              },
+              "sourceVolume": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "volumes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "host": {
+                "type": "object",
+                "properties": {
+                  "sourcePath": {
+                    "type": "string"
+                  }
+                }
+              },
+              "efsVolumeConfiguration": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "logConfiguration": {
+          "type": "object",
+          "properties": {
+            "logDriver": {
+              "type": "string",
+              "enum": [
+                "json-file",
+                "syslog",
+                "journald",
+                "gelf",
+                "fluentd",
+                "awslogs",
+                "splunk"
+              ]
+            },
+            "options": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "secretOptions": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "privileged": {
+          "type": "boolean"
+        },
+        "readonlyRootFilesystem": {
+          "type": "boolean"
+        },
+        "user": {
+          "type": "string"
+        },
+        "linuxParameters": {
+          "type": "object"
+        },
+        "fargatePlatformConfiguration": {
+          "type": "object",
+          "properties": {
+            "platformVersion": {
+              "type": "string"
+            }
+          }
+        },
+        "networkConfiguration": {
+          "type": "object",
+          "properties": {
+            "assignPublicIp": {
+              "type": "string",
+              "enum": [
+                "ENABLED",
+                "DISABLED"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "NodeProperties": {
+      "type": "object",
+      "description": "An object that represents the node properties of a multi-node parallel job.",
+      "required": [
+        "numNodes",
+        "mainNode",
+        "nodeRangeProperties"
+      ],
+      "properties": {
+        "numNodes": {
+          "type": "integer",
+          "description": "The number of nodes that are associated with a multi-node parallel job."
+        },
+        "mainNode": {
+          "type": "integer",
+          "description": "The node index value for the main node of a multi-node parallel job."
+        },
+        "nodeRangeProperties": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "targetNodes": {
+                "type": "string"
+              },
+              "container": {
+                "$ref": "#/$defs/ContainerProperties"
+              }
+            }
+          }
+        }
+      }
+    },
+    "JobTimeout": {
+      "type": "object",
+      "description": "Job timeout configuration.",
+      "properties": {
+        "attemptDurationSeconds": {
+          "type": "integer",
+          "minimum": 60,
+          "description": "The job timeout time, in seconds."
+        }
+      }
+    }
+  }
+}

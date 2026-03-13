@@ -1,0 +1,221 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "batch": "https://docs.aws.amazon.com/batch/latest/APIReference/",
+    "aws": "https://aws.amazon.com/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+
+    "JobDefinition": {
+      "@id": "batch:API_JobDefinition",
+      "@context": {
+        "jobDefinitionName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "jobDefinitionArn": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "revision": {
+          "@id": "schema:version",
+          "@type": "xsd:integer"
+        },
+        "status": {
+          "@id": "batch:jobDefinitionStatus",
+          "@type": "xsd:string"
+        },
+        "type": {
+          "@id": "batch:jobDefinitionType",
+          "@type": "xsd:string"
+        },
+        "parameters": {
+          "@id": "batch:parameters",
+          "@container": "@index"
+        },
+        "containerProperties": {
+          "@id": "batch:containerProperties",
+          "@type": "batch:ContainerProperties"
+        },
+        "retryStrategy": {
+          "@id": "batch:retryStrategy",
+          "@type": "batch:RetryStrategy"
+        },
+        "timeout": {
+          "@id": "batch:timeout",
+          "@type": "batch:JobTimeout"
+        },
+        "tags": {
+          "@id": "schema:keywords",
+          "@container": "@index"
+        },
+        "platformCapabilities": {
+          "@id": "batch:platformCapabilities",
+          "@container": "@list"
+        },
+        "propagateTags": {
+          "@id": "batch:propagateTags",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "JobDetail": {
+      "@id": "batch:API_JobDetail",
+      "@context": {
+        "jobArn": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "jobName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "jobId": {
+          "@id": "batch:jobId",
+          "@type": "xsd:string"
+        },
+        "jobQueue": {
+          "@id": "batch:jobQueue",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "batch:jobStatus",
+          "@type": "xsd:string"
+        },
+        "statusReason": {
+          "@id": "batch:statusReason",
+          "@type": "xsd:string"
+        },
+        "createdAt": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:integer"
+        },
+        "startedAt": {
+          "@id": "batch:startedAt",
+          "@type": "xsd:integer"
+        },
+        "stoppedAt": {
+          "@id": "batch:stoppedAt",
+          "@type": "xsd:integer"
+        },
+        "jobDefinition": {
+          "@id": "batch:jobDefinition",
+          "@type": "xsd:string"
+        },
+        "container": {
+          "@id": "batch:container",
+          "@type": "batch:ContainerDetail"
+        }
+      }
+    },
+
+    "ComputeEnvironment": {
+      "@id": "batch:API_ComputeEnvironmentDetail",
+      "@context": {
+        "computeEnvironmentName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "computeEnvironmentArn": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "type": {
+          "@id": "batch:computeEnvironmentType",
+          "@type": "xsd:string"
+        },
+        "state": {
+          "@id": "batch:computeEnvironmentState",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "batch:computeEnvironmentStatus",
+          "@type": "xsd:string"
+        },
+        "serviceRole": {
+          "@id": "batch:serviceRole",
+          "@type": "xsd:string"
+        },
+        "computeResources": {
+          "@id": "batch:computeResources",
+          "@type": "batch:ComputeResource"
+        },
+        "tags": {
+          "@id": "schema:keywords",
+          "@container": "@index"
+        }
+      }
+    },
+
+    "JobQueue": {
+      "@id": "batch:API_JobQueueDetail",
+      "@context": {
+        "jobQueueName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "jobQueueArn": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "state": {
+          "@id": "batch:jobQueueState",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "batch:jobQueueStatus",
+          "@type": "xsd:string"
+        },
+        "priority": {
+          "@id": "batch:priority",
+          "@type": "xsd:integer"
+        },
+        "computeEnvironmentOrder": {
+          "@id": "batch:computeEnvironmentOrder",
+          "@container": "@list"
+        },
+        "schedulingPolicyArn": {
+          "@id": "batch:schedulingPolicyArn",
+          "@type": "xsd:string"
+        },
+        "tags": {
+          "@id": "schema:keywords",
+          "@container": "@index"
+        }
+      }
+    },
+
+    "ContainerProperties": {
+      "@id": "batch:ContainerProperties",
+      "@context": {
+        "image": {
+          "@id": "batch:image",
+          "@type": "xsd:string"
+        },
+        "command": {
+          "@id": "batch:command",
+          "@container": "@list"
+        },
+        "jobRoleArn": {
+          "@id": "batch:jobRoleArn",
+          "@type": "xsd:string"
+        },
+        "executionRoleArn": {
+          "@id": "batch:executionRoleArn",
+          "@type": "xsd:string"
+        },
+        "environment": {
+          "@id": "batch:environment",
+          "@container": "@list"
+        },
+        "resourceRequirements": {
+          "@id": "batch:resourceRequirements",
+          "@container": "@list"
+        }
+      }
+    }
+  }
+}
