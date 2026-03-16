@@ -1,15 +1,18 @@
+aid: amazon-batch
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/apis.yml
 name: Amazon Batch
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+specificationVersion: '0.19'
 description: >-
   AWS Batch enables developers, scientists, and engineers to easily and
   efficiently run hundreds of thousands of batch computing jobs on AWS.
   AWS Batch dynamically provisions the optimal quantity and type of compute
   resources based on the volume and specific resource requirements of the
   batch jobs submitted.
-image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-url: https://aws.amazon.com/batch/
-type: Index
 created: '2024-01-15'
-modified: '2026-03-13'
+modified: '2026-03-16'
 tags:
 - Batch Computing
 - HPC
