@@ -43,14 +43,8 @@ security:
 tags:
   - name: Compute Environments
     description: Operations for managing compute environments
-  - name: Job Queues
-    description: Operations for managing job queues
-  - name: Job Definitions
-    description: Operations for managing job definitions
   - name: Jobs
     description: Operations for submitting and managing jobs
-  - name: Scheduling Policies
-    description: Operations for managing scheduling policies
 paths:
   /v1/submitjob:
     post:
