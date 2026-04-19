@@ -1,0 +1,67 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://batch.us-east-1.amazonaws.com/v1/registerjobdefinition",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "AWS4-HMAC-SHA256 Credential=..."
+    },
+    "body": {
+      "jobDefinitionName": "my-job-definition",
+      "type": "container",
+      "containerProperties": {
+        "image": "123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest",
+        "vcpus": 1,
+        "memory": 2048,
+        "jobRoleArn": "arn:aws:iam::123456789012:role/MyBatchJobRole",
+        "command": ["python", "main.py"],
+        "environment": [
+          { "name": "LOG_LEVEL", "value": "INFO" }
+        ],
+        "mountPoints": [
+          {
+            "containerPath": "/data",
+            "readOnly": false,
+            "sourceVolume": "data-volume"
+          }
+        ],
+        "volumes": [
+          {
+            "name": "data-volume",
+            "host": {
+              "sourcePath": "/tmp/data"
+            }
+          }
+        ],
+        "logConfiguration": {
+          "logDriver": "awslogs",
+          "options": {
+            "awslogs-group": "/aws/batch/job",
+            "awslogs-region": "us-east-1"
+          }
+        }
+      },
+      "retryStrategy": {
+        "attempts": 2,
+        "evaluateOnExit": [
+          { "onExitCode": "0", "action": "EXIT" },
+          { "onReason": "CannotPullContainerError:*", "action": "RETRY" }
+        ]
+      },
+      "timeout": {
+        "attemptDurationSeconds": 1800
+      },
+      "tags": {
+        "Application": "DataPipeline"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "jobDefinitionName": "my-job-definition",
+      "jobDefinitionArn": "arn:aws:batch:us-east-1:123456789012:job-definition/my-job-definition:1",
+      "revision": 1
+    }
+  }
+}

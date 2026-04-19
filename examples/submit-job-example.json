@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://batch.us-east-1.amazonaws.com/v1/submitjob",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "AWS4-HMAC-SHA256 Credential=..."
+    },
+    "body": {
+      "jobName": "my-batch-job",
+      "jobQueue": "arn:aws:batch:us-east-1:123456789012:job-queue/my-job-queue",
+      "jobDefinition": "arn:aws:batch:us-east-1:123456789012:job-definition/my-job-definition:1",
+      "containerOverrides": {
+        "vcpus": 2,
+        "memory": 4096,
+        "command": ["python", "process.py", "--input", "s3://my-bucket/input.csv"],
+        "environment": [
+          { "name": "ENV", "value": "production" }
+        ]
+      },
+      "retryStrategy": {
+        "attempts": 3
+      },
+      "timeout": {
+        "attemptDurationSeconds": 3600
+      },
+      "tags": {
+        "Environment": "Production",
+        "Team": "DataEngineering"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "jobId": "jb-12345678-1234-1234-1234-123456789012",
+      "jobName": "my-batch-job",
+      "jobArn": "arn:aws:batch:us-east-1:123456789012:job/jb-12345678-1234-1234-1234-123456789012"
+    }
+  }
+}

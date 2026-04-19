@@ -1,0 +1,100 @@
+vocabulary:
+  domain: AWS Batch
+  description: >-
+    Taxonomy and vocabulary for AWS Batch covering batch computing concepts,
+    resource types, job scheduling, and HPC workflows.
+
+  concepts:
+    - term: Compute Environment
+      definition: >-
+        A managed or unmanaged collection of compute resources (EC2, Fargate,
+        or EKS) that AWS Batch uses to run containerized batch jobs.
+
+    - term: Managed Compute Environment
+      definition: >-
+        A compute environment where AWS Batch automatically provisions, scales,
+        and terminates EC2 or Fargate instances based on job demand.
+
+    - term: Unmanaged Compute Environment
+      definition: >-
+        A compute environment where the customer manages their own EC2
+        instances registered with an ECS cluster.
+
+    - term: Job Queue
+      definition: >-
+        A queue that holds submitted jobs and routes them to compute environments
+        based on priority ordering and scheduling policies.
+
+    - term: Job Definition
+      definition: >-
+        A versioned template that specifies the container image, resource
+        requirements (vCPUs, memory), command, retry strategy, and timeout
+        for a batch job type.
+
+    - term: Job
+      definition: >-
+        A unit of work submitted to AWS Batch. Can be a single-node job,
+        an array job (multiple parallel instances), or a multi-node parallel
+        job for MPI-style HPC workloads.
+
+    - term: Array Job
+      definition: >-
+        A batch job that spawns N identical child jobs, each with a unique
+        array index. Used for parameter sweeps, data parallelism, and
+        large-scale simulations.
+
+    - term: Multi-Node Parallel Job
+      definition: >-
+        A batch job that runs across multiple EC2 instances for tightly-coupled
+        HPC workloads like MPI applications.
+
+    - term: Scheduling Policy
+      definition: >-
+        A fair-share scheduling policy that distributes compute resources
+        equitably across multiple users or job categories to prevent starvation.
+
+    - term: Spot Instance
+      definition: >-
+        AWS EC2 Spot Instances used in AWS Batch compute environments to
+        run batch jobs at a significantly reduced cost compared to On-Demand.
+
+    - term: SPOT_CAPACITY_OPTIMIZED
+      definition: >-
+        An allocation strategy for Spot Instances that selects instance pools
+        with the most available capacity to reduce interruption likelihood.
+
+    - term: vCPU
+      definition: >-
+        Virtual CPU — the unit of compute capacity requested by batch job
+        definitions and allocated in compute environments.
+
+    - term: Retry Strategy
+      definition: >-
+        Configuration that specifies the number of times to retry a failed
+        job attempt, with optional conditional exit code evaluation.
+
+    - term: Job Status
+      definition: >-
+        The lifecycle state of a batch job. States: SUBMITTED, PENDING,
+        RUNNABLE, STARTING, RUNNING, SUCCEEDED, FAILED.
+
+    - term: Fair-Share Scheduling
+      definition: >-
+        A scheduling approach that ensures equitable distribution of compute
+        resources based on share weights and historical usage.
+
+  tags:
+    - Batch Computing
+    - HPC
+    - High Performance Computing
+    - Containers
+    - EC2
+    - Fargate
+    - EKS
+    - Job Scheduling
+    - Data Processing
+    - Scientific Computing
+    - AWS
+    - Amazon Web Services
+    - Spot Instances
+    - Serverless

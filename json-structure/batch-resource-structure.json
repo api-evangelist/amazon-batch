@@ -1,0 +1,124 @@
+{
+  "title": "AWS Batch Resource Structure",
+  "description": "Structural documentation for key resources in the AWS Batch API",
+  "resources": {
+    "ComputeEnvironment": {
+      "description": "Managed or unmanaged collection of compute resources for running batch jobs",
+      "identifiers": ["computeEnvironmentName", "computeEnvironmentArn"],
+      "fields": {
+        "computeEnvironmentName": { "type": "string", "required": true },
+        "computeEnvironmentArn": { "type": "string", "readOnly": true },
+        "type": { "type": "enum[MANAGED|UNMANAGED]", "required": true },
+        "state": { "type": "enum[ENABLED|DISABLED]", "required": false },
+        "status": { "type": "enum[CREATING|UPDATING|DELETING|DELETED|VALID|INVALID]", "readOnly": true },
+        "computeResources": {
+          "type": "object",
+          "nested": {
+            "type": { "type": "enum[EC2|SPOT|FARGATE|FARGATE_SPOT|EKS]" },
+            "allocationStrategy": { "type": "string" },
+            "minvCpus": { "type": "integer" },
+            "maxvCpus": { "type": "integer", "required": true },
+            "desiredvCpus": { "type": "integer" },
+            "instanceTypes": { "type": "array[string]" },
+            "subnets": { "type": "array[string]", "required": true },
+            "securityGroupIds": { "type": "array[string]" }
+          }
+        },
+        "serviceRole": { "type": "string" },
+        "tags": { "type": "object" }
+      },
+      "relationships": {
+        "usedBy": ["JobQueue"]
+      }
+    },
+    "JobQueue": {
+      "description": "Queue that routes submitted jobs to compute environments",
+      "identifiers": ["jobQueueName", "jobQueueArn"],
+      "fields": {
+        "jobQueueName": { "type": "string", "required": true },
+        "jobQueueArn": { "type": "string", "readOnly": true },
+        "state": { "type": "enum[ENABLED|DISABLED]", "required": true },
+        "status": { "type": "enum[CREATING|UPDATING|DELETING|DELETED|VALID|INVALID]", "readOnly": true },
+        "priority": { "type": "integer", "required": true },
+        "computeEnvironmentOrder": {
+          "type": "array",
+          "required": true,
+          "items": {
+            "order": { "type": "integer" },
+            "computeEnvironment": { "type": "string" }
+          }
+        },
+        "schedulingPolicyArn": { "type": "string" },
+        "tags": { "type": "object" }
+      },
+      "relationships": {
+        "referencesMany": ["ComputeEnvironment"],
+        "hasMany": ["Job"]
+      }
+    },
+    "JobDefinition": {
+      "description": "Template specifying container image, resources, retry strategy for batch jobs",
+      "identifiers": ["jobDefinitionName", "jobDefinitionArn", "revision"],
+      "fields": {
+        "jobDefinitionName": { "type": "string", "required": true },
+        "jobDefinitionArn": { "type": "string", "readOnly": true },
+        "type": { "type": "enum[container|multinode]", "required": true },
+        "revision": { "type": "integer", "readOnly": true },
+        "status": { "type": "enum[ACTIVE|INACTIVE]", "readOnly": true },
+        "containerProperties": {
+          "type": "object",
+          "nested": {
+            "image": { "type": "string", "required": true },
+            "vcpus": { "type": "integer" },
+            "memory": { "type": "integer" },
+            "command": { "type": "array[string]" },
+            "jobRoleArn": { "type": "string" },
+            "environment": { "type": "array" },
+            "volumes": { "type": "array" },
+            "mountPoints": { "type": "array" }
+          }
+        },
+        "retryStrategy": {
+          "type": "object",
+          "nested": {
+            "attempts": { "type": "integer" },
+            "evaluateOnExit": { "type": "array" }
+          }
+        },
+        "timeout": {
+          "type": "object",
+          "nested": {
+            "attemptDurationSeconds": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "Job": {
+      "description": "A unit of work submitted to AWS Batch for execution",
+      "identifiers": ["jobId", "jobArn"],
+      "fields": {
+        "jobId": { "type": "string", "readOnly": true },
+        "jobArn": { "type": "string", "readOnly": true },
+        "jobName": { "type": "string", "required": true },
+        "jobQueue": { "type": "string", "required": true },
+        "jobDefinition": { "type": "string", "required": true },
+        "status": { "type": "enum[SUBMITTED|PENDING|RUNNABLE|STARTING|RUNNING|SUCCEEDED|FAILED]", "readOnly": true },
+        "statusReason": { "type": "string", "readOnly": true },
+        "createdAt": { "type": "integer", "readOnly": true },
+        "startedAt": { "type": "integer", "readOnly": true },
+        "stoppedAt": { "type": "integer", "readOnly": true },
+        "arrayProperties": {
+          "type": "object",
+          "nested": {
+            "size": { "type": "integer" },
+            "index": { "type": "integer", "readOnly": true }
+          }
+        }
+      },
+      "relationships": {
+        "belongsTo": ["JobQueue"],
+        "basedOn": ["JobDefinition"]
+      }
+    }
+  }
+}

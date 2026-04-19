@@ -1,0 +1,138 @@
+capabilities:
+  - id: manage-compute-environments
+    name: Manage Compute Environments
+    description: >-
+      Create and manage managed or unmanaged compute environments that
+      provision EC2 (On-Demand or Spot), Fargate, or EKS compute resources
+      for running batch jobs.
+    operations:
+      - CreateComputeEnvironment
+      - DescribeComputeEnvironments
+      - UpdateComputeEnvironment
+      - DeleteComputeEnvironment
+    tags:
+      - Compute
+      - Infrastructure
+      - EC2
+      - Fargate
+      - EKS
+
+  - id: manage-job-queues
+    name: Manage Job Queues
+    description: >-
+      Create and manage job queues that route submitted jobs to compute
+      environments based on priority and scheduling policies.
+    operations:
+      - CreateJobQueue
+      - DescribeJobQueues
+      - UpdateJobQueue
+      - DeleteJobQueue
+    tags:
+      - Job Queues
+      - Scheduling
+      - Priority
+
+  - id: manage-job-definitions
+    name: Manage Job Definitions
+    description: >-
+      Register and manage job definitions that specify container images,
+      resource requirements, retry strategies, and timeout configurations
+      for batch jobs.
+    operations:
+      - RegisterJobDefinition
+      - DescribeJobDefinitions
+      - DeregisterJobDefinition
+    tags:
+      - Job Definitions
+      - Containers
+      - Configuration
+
+  - id: run-batch-jobs
+    name: Run Batch Jobs
+    description: >-
+      Submit, monitor, list, and terminate batch jobs. Supports single-node
+      jobs, array jobs for parameter sweeps, and multi-node parallel jobs
+      for HPC workloads.
+    operations:
+      - SubmitJob
+      - DescribeJobs
+      - ListJobs
+      - TerminateJob
+      - CancelJob
+    tags:
+      - Jobs
+      - HPC
+      - Array Jobs
+      - Parallel Computing
+
+  - id: manage-scheduling-policies
+    name: Manage Scheduling Policies
+    description: >-
+      Create and manage fair-share scheduling policies that distribute
+      compute resources equitably across multiple users or job categories.
+    operations:
+      - CreateSchedulingPolicy
+      - DescribeSchedulingPolicies
+      - UpdateSchedulingPolicy
+      - DeleteSchedulingPolicy
+      - ListSchedulingPolicies
+    tags:
+      - Scheduling
+      - Fair-Share
+      - Policy
+
+  - id: manage-tags
+    name: Manage Tags
+    description: >-
+      Apply and remove metadata tags on AWS Batch resources for cost
+      allocation and governance.
+    operations:
+      - TagResource
+      - UntagResource
+      - ListTagsForResource
+    tags:
+      - Tags
+      - Governance
+
+compositions:
+  - id: batch-pipeline-setup
+    name: Batch Pipeline Setup
+    description: >-
+      End-to-end workflow for setting up a batch processing pipeline:
+      create a compute environment, configure a job queue, register a
+      job definition, and submit jobs.
+    steps:
+      - capability: manage-compute-environments
+        operation: CreateComputeEnvironment
+      - capability: manage-job-queues
+        operation: CreateJobQueue
+      - capability: manage-job-definitions
+        operation: RegisterJobDefinition
+      - capability: run-batch-jobs
+        operation: SubmitJob
+      - capability: run-batch-jobs
+        operation: DescribeJobs
+    tags:
+      - Pipeline
+      - Workflow
+      - Batch
+
+  - id: hpc-array-job-workflow
+    name: HPC Array Job Workflow
+    description: >-
+      Workflow for running large-scale parameter sweep or HPC array jobs
+      across managed Spot Instance compute environments.
+    steps:
+      - capability: manage-compute-environments
+        operation: CreateComputeEnvironment
+      - capability: manage-job-definitions
+        operation: RegisterJobDefinition
+      - capability: run-batch-jobs
+        operation: SubmitJob
+      - capability: run-batch-jobs
+        operation: ListJobs
+    tags:
+      - HPC
+      - Array Jobs
+      - Spot Instances
+      - Workflow

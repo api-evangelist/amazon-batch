@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://batch.us-east-1.amazonaws.com/v1/createcomputeenvironment",
+    "headers": {
+      "Content-Type": "application/json",
+      "Authorization": "AWS4-HMAC-SHA256 Credential=..."
+    },
+    "body": {
+      "computeEnvironmentName": "my-managed-compute-env",
+      "type": "MANAGED",
+      "state": "ENABLED",
+      "computeResources": {
+        "type": "SPOT",
+        "allocationStrategy": "SPOT_CAPACITY_OPTIMIZED",
+        "minvCpus": 0,
+        "maxvCpus": 256,
+        "desiredvCpus": 0,
+        "instanceTypes": ["optimal"],
+        "subnets": ["subnet-12345678"],
+        "securityGroupIds": ["sg-12345678"],
+        "instanceRole": "arn:aws:iam::123456789012:instance-profile/ecsInstanceRole",
+        "bidPercentage": 60,
+        "spotIamFleetRole": "arn:aws:iam::123456789012:role/AmazonEC2SpotFleetRole"
+      },
+      "serviceRole": "arn:aws:iam::123456789012:role/AWSBatchServiceRole",
+      "tags": {
+        "Environment": "Production"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "computeEnvironmentName": "my-managed-compute-env",
+      "computeEnvironmentArn": "arn:aws:batch:us-east-1:123456789012:compute-environment/my-managed-compute-env"
+    }
+  }
+}
