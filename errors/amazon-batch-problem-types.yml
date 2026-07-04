@@ -1,0 +1,24 @@
+generated: '2026-06-20'
+method: derived
+format: aws-json
+source: openapi/amazon-batch-openapi.yml
+note: >-
+  Derived from OpenAPI 4xx/5xx responses. AWS Batch returns errors in the AWS
+  JSON protocol (an __type field plus a message), not RFC 9457
+  application/problem+json. Titles and remediation enriched from the AWS Batch
+  API Reference common errors.
+problems:
+  - status: 400
+    type: ClientException
+    title: Invalid request
+    remediation: >-
+      Check request parameters (jobName, jobQueue, jobDefinition) for validity
+      and correct formatting before retrying.
+    source_operation: openapi/amazon-batch-openapi.yml#SubmitJob
+  - status: 500
+    type: ServerException
+    title: Internal server error
+    remediation: >-
+      A server-side issue occurred. Retry with exponential backoff; if it
+      persists, contact AWS Support.
+    source_operation: openapi/amazon-batch-openapi.yml#SubmitJob

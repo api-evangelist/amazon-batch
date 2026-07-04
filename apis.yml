@@ -13,7 +13,7 @@ description: >-
   and specific resource requirements of the batch jobs submitted, with no
   need to install or manage batch computing software or server clusters.
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-06-20'
 tags:
   - AWS
   - Batch Computing
@@ -82,6 +82,20 @@ apis:
         url: https://docs.aws.amazon.com/cli/latest/reference/batch/
       - type: Security
         url: https://docs.aws.amazon.com/batch/latest/userguide/security.html
+      - type: Packages
+        url: packages/amazon-batch-packages.yml
+      - type: MCPServer
+        url: mcp/amazon-batch-mcp.yml
+      - type: LLMsTxt
+        url: llms/amazon-batch-llms.txt
+      - type: Overlay
+        url: overlays/amazon-batch-openapi-overlay.yaml
+      - type: Conformance
+        url: conformance/amazon-batch-conformance.yml
+      - type: ErrorCatalog
+        url: errors/amazon-batch-problem-types.yml
+      - type: Lifecycle
+        url: lifecycle/amazon-batch-lifecycle.yml
     contact:
       - FN: Amazon Web Services
         url: https://aws.amazon.com/contact-us/
@@ -192,6 +206,10 @@ common:
     url: https://aws.amazon.com/security/
   - type: Compliance
     url: https://aws.amazon.com/compliance/
+  - type: WellKnown
+    url: well-known/amazon-batch-well-known.yml
+  - type: SecurityTxt
+    url: well-known/amazon-batch-security.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

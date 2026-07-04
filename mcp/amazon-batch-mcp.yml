@@ -1,0 +1,19 @@
+generated: '2026-06-20'
+method: derived
+status: candidate
+source: openapi/amazon-batch-openapi.yml
+note: >-
+  AWS does not publish a dedicated hosted AWS Batch MCP server. AWS Batch can be
+  driven through the general-purpose AWS API MCP server in the awslabs/mcp
+  project (https://github.com/awslabs/mcp). The tools below are candidate MCP
+  tools derived one-per-operation from the captured OpenAPI operations.
+server:
+  name: amazon-batch
+  transport: http
+tools:
+  - name: submit_job
+    description: Submit an AWS Batch job from a job definition.
+    source_operation: openapi/amazon-batch-openapi.yml#SubmitJob
+  - name: create_compute_environment
+    description: Create an AWS Batch compute environment.
+    source_operation: openapi/amazon-batch-openapi.yml#CreateComputeEnvironment

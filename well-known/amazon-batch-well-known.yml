@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  Probed /.well-known/ discovery paths on the AWS Batch regional endpoint and
+  the aws.amazon.com host.
+hosts:
+  - host: https://batch.us-east-1.amazonaws.com
+    note: >-
+      AWS Batch regional API endpoints require SigV4-signed requests; all
+      unauthenticated /.well-known/ probes return 403 Forbidden.
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+  - host: https://aws.amazon.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: amazon-batch-security.txt
+      - path: /.well-known/openid-configuration
+        status: 301
+        note: Redirects to marketing site; no OIDC discovery document.
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+        note: Redirects to marketing site; no RFC 8414 metadata.

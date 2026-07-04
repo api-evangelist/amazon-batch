@@ -1,0 +1,70 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  Registry probes (npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems,
+  Packagist, crates.io) for first-party AWS SDK AWS Batch clients.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-batch"
+    url: https://www.npmjs.com/package/@aws-sdk/client-batch
+    install: npm install @aws-sdk/client-batch
+    official: true
+    status: 200
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    official: true
+    status: 200
+    note: AWS Batch is accessed via the boto3 'batch' client.
+  - language: java
+    registry: maven
+    name: software.amazon.awssdk:batch
+    url: https://central.sonatype.com/artifact/software.amazon.awssdk/batch
+    install: >-
+      <dependency><groupId>software.amazon.awssdk</groupId><artifactId>batch</artifactId></dependency>
+    official: true
+    status: 200
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.Batch
+    url: https://www.nuget.org/packages/AWSSDK.Batch
+    install: dotnet add package AWSSDK.Batch
+    official: true
+    status: 200
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/batch
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/batch
+    install: go get github.com/aws/aws-sdk-go-v2/service/batch
+    official: true
+    status: 200
+  - language: ruby
+    registry: rubygems
+    name: aws-sdk-batch
+    url: https://rubygems.org/gems/aws-sdk-batch
+    install: gem install aws-sdk-batch
+    official: true
+    status: 200
+  - language: php
+    registry: packagist
+    name: aws/aws-sdk-php
+    url: https://packagist.org/packages/aws/aws-sdk-php
+    install: composer require aws/aws-sdk-php
+    official: true
+    status: 200
+    note: AWS Batch is accessed via the BatchClient in the aws-sdk-php monorepo.
+  - language: rust
+    registry: crates.io
+    name: aws-sdk-batch
+    url: https://crates.io/crates/aws-sdk-batch
+    install: cargo add aws-sdk-batch
+    official: true
+    status: 200
+cli:
+  - name: AWS CLI (aws batch)
+    url: https://docs.aws.amazon.com/cli/latest/reference/batch/
+    install: pip install awscli
+    official: true

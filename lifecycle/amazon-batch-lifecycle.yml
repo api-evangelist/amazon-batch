@@ -1,0 +1,26 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS Batch API Reference, AWS Batch document history, and the AWS Health
+  Dashboard.
+versioning:
+  scheme: api-version-date
+  current: '2016-08-10'
+  docs: https://docs.aws.amazon.com/batch/latest/APIReference/Welcome.html
+  note: >-
+    AWS services pin an API version by date. Backward-incompatible changes ship
+    as new dated API versions in the AWS SDKs.
+deprecation:
+  policy_url: https://docs.aws.amazon.com/batch/latest/userguide/document_history.html
+  sunset_header: false
+  note: >-
+    AWS communicates deprecations via service documentation, the document
+    history page, and customer notifications rather than RFC 8594 Sunset
+    headers.
+sla:
+  url: https://aws.amazon.com/compute/sla/
+  uptime_target: "99.99%"
+  note: AWS Batch is covered under the AWS Compute Service Level Agreement.
+status_page: https://health.aws.amazon.com/health/status
+change_history: https://docs.aws.amazon.com/batch/latest/userguide/document_history.html
+deprecated_operations: []

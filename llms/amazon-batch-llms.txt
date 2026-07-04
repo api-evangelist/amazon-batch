@@ -1,0 +1,512 @@
+# AWS Batch User Guide
+
+> AWS Batch makes it easier than ever to run batch computing workloads on the AWS Cloud. Batch computing is a common way for developers, scientists and engineers to access large amounts of compute resources, and AWS Batch removes the undifferentiated heavy lifting of configuring and managing the required infrastructure.
+
+- [Elastic Fabric Adapter](https://docs.aws.amazon.com/batch/latest/userguide/efa.md)
+- [Resource: Service quotas](https://docs.aws.amazon.com/batch/latest/userguide/service_limits.md)
+- [Document history](https://docs.aws.amazon.com/batch/latest/userguide/document_history.md)
+
+## [What is AWS Batch?](https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.md)
+
+- [Components of AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/batch_components.md): Learn about AWS Batch components including jobs, job definitions, job queues, and compute environments for efficient batch computing across multiple Availability Zones.
+
+
+## [Setting up AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/get-set-up-for-aws-batch.md)
+
+- [Create IAM roles](https://docs.aws.amazon.com/batch/latest/userguide/create-an-iam-role.md): Create IAM roles for AWS Batch compute environments and container instances to provide AWS API access credentials.
+- [Create a key pair](https://docs.aws.amazon.com/batch/latest/userguide/create-a-key-pair.md): Create Amazon EC2 key pairs for secure SSH access to AWS Batch compute environment container instances using public-key cryptography.
+- [Create a VPC](https://docs.aws.amazon.com/batch/latest/userguide/create-a-vpc.md): Create a Virtual Private Cloud (VPC) to launch AWS Batch container instances in a secure, isolated virtual network environment.
+- [Create a security group](https://docs.aws.amazon.com/batch/latest/userguide/create-a-base-security-group.md): Create security groups for AWS Batch compute environment container instances to control inbound and outbound network traffic.
+- [Install the AWS CLI](https://docs.aws.amazon.com/batch/latest/userguide/install_aws_cli.md): Install the latest AWS CLI version to use AWS Batch commands and manage batch computing resources from the command line.
+
+
+## [Getting started tutorials](https://docs.aws.amazon.com/batch/latest/userguide/Batch_GetStarted.md)
+
+- [Getting started with Amazon EC2 using the Wizard](https://docs.aws.amazon.com/batch/latest/userguide/getting-started-ec2.md): Learn how to create an Amazon EC2 orchestration type using the Wizard.
+- [Getting started with Fargate orchestration using the Wizard](https://docs.aws.amazon.com/batch/latest/userguide/getting-started-fargate.md): Learn how to create a Fargate orchestration type and run Hello World.
+- [Getting started with AWS Batch and Fargate using the AWS CLI](https://docs.aws.amazon.com/batch/latest/userguide/getting-started-with-fargate-using-the-aws-cli.md): Get started with AWS Batch on Fargate using the AWS CLI to create compute environments, job queues, and run your first Hello World job.
+- [Getting started with Amazon EKS](https://docs.aws.amazon.com/batch/latest/userguide/getting-started-eks.md): Get started with AWS Batch on Amazon EKS to schedule and scale batch workloads in existing Amazon EKS clusters using managed orchestration.
+- [Getting started with AWS Batch on Amazon EKS Private Clusters](https://docs.aws.amazon.com/batch/latest/userguide/getting-started-eks-privateclusters.md): Get started with AWS Batch on private Amazon EKS clusters to orchestrate batch workloads with queuing, dependency tracking, and managed scaling.
+- [Getting started with AWS Batch on SageMaker AI](https://docs.aws.amazon.com/batch/latest/userguide/getting-started-sagemaker.md): This tutorial shows you how to run SageMaker Training jobs using AWS Batch service jobs.
+
+
+## [The AWS Batch widget dashboard](https://docs.aws.amazon.com/batch/latest/userguide/custom-dashboard.md)
+
+- [Add the Single job queue widget](https://docs.aws.amazon.com/batch/latest/userguide/single-job-queue.md): Discusses how to add the Single job queue widget to the AWS Batch dashboard.
+- [How to add the CloudWatch Container Insights widget](https://docs.aws.amazon.com/batch/latest/userguide/container-insight.md): Discusses how to add the Container Insights widget to the AWS Batch dashboard.
+- [Add the Job logs widget](https://docs.aws.amazon.com/batch/latest/userguide/job-logs.md): Discusses how to add the Job logs widget to the AWS Batch dashboard.
+
+
+## [Compute environments for AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.md)
+
+- [Managed compute environments](https://docs.aws.amazon.com/batch/latest/userguide/managed_compute_environments.md): You can use a managed compute environment to have AWS Batch manage the capacity and instance types of the compute resources within the environment.
+- [Unmanaged compute environments](https://docs.aws.amazon.com/batch/latest/userguide/unmanaged_compute_environments.md): In an unmanaged compute environment, you manage your own compute resources.
+
+### [Create a compute environment](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment.md)
+
+Create AWS Batch compute environments with managed or unmanaged configurations for Amazon EC2 instances and Fargate resources.
+
+- [Tutorial: Create a managed compute environment using Fargate resources](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment-fargate.md): Complete the following steps to create a managed compute environment using AWS Fargate resources.
+- [Tutorial: Create a managed compute environment using Amazon EC2 resources](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment-managed-ec2.md): Complete the following steps to create a managed compute environment using Amazon Elastic Compute Cloud (Amazon EC2) resources.
+- [Tutorial: Create an unmanaged compute environment using Amazon EC2 resources](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment-unmanaged-ec2.md): Complete the following steps to create an unmanaged compute environment using Amazon Elastic Compute Cloud (Amazon EC2) resources.
+- [Tutorial: Create a managed compute environment using Amazon EKS resources](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment-managed-eks.md): Complete the following steps to create a managed compute environment using Amazon Elastic Kubernetes Service (Amazon EKS) resources.
+- [Tutorial: Create an unmanaged compute environment using Amazon EKS resources](https://docs.aws.amazon.com/batch/latest/userguide/create-compute-environment-unmanaged-eks.md): Complete the following steps to create an unmanaged compute environment using Amazon Elastic Kubernetes Service (Amazon EKS) resources.
+- [Resource: Compute environment template](https://docs.aws.amazon.com/batch/latest/userguide/compute-environment-template.md): Use compute environment templates to create AWS Batch compute environments with the AWS CLI using JSON configuration files.
+- [Instance type compute table](https://docs.aws.amazon.com/batch/latest/userguide/instance-type-compute-table.md): The following table lists the AWS Region, instance family keyword, and available instance families.
+
+### [Update a compute environment](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.md)
+
+Learn about different strategies for updating compute environments in AWS Batch and when to use each approach.
+
+- [Perform scaling updates](https://docs.aws.amazon.com/batch/latest/userguide/scaling-updates.md): Learn how to perform scaling updates to adjust the capacity of your AWS Batch compute environments.
+- [Perform infrastructure updates](https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-updates.md): Learn how to perform infrastructure updates to modify the configuration of your AWS Batch compute environments.
+- [Perform blue/green updates](https://docs.aws.amazon.com/batch/latest/userguide/blue-green-updates.md): Learn how to perform blue/green updates for AWS Batch compute environments to safely update AMIs with minimal disruption to your workloads.
+
+### [Compute resource AMIs](https://docs.aws.amazon.com/batch/latest/userguide/compute_resource_AMIs.md)
+
+Learn about AWS Batch compute resource AMIs, including default Amazon ECS optimized AMIs and when to create custom AMIs for specific requirements.
+
+- [Compute resource AMI specification](https://docs.aws.amazon.com/batch/latest/userguide/batch-ami-spec.md): The basic AWS Batch compute resource AMI specification consists of the following:
+- [AMI selection order](https://docs.aws.amazon.com/batch/latest/userguide/ami-selection-order.md): AWS Batch determines the Amazon Machine Image (AMI) for compute resources using the following priority order.
+- [Managing AMI versions in compute environments](https://docs.aws.amazon.com/batch/latest/userguide/managing-ami-versions.md): AWS Batch provides visibility into the Amazon Machine Images (AMIs) that your compute environments use.
+- [Tutorial: Create a compute resource AMI](https://docs.aws.amazon.com/batch/latest/userguide/create-batch-ami.md): Tutorial on creating custom compute resource AMIs for AWS Batch managed and unmanaged compute environments, starting from a base AMI.
+- [Use a GPU workload AMI](https://docs.aws.amazon.com/batch/latest/userguide/batch-gpu-ami.md): Configure GPU workload AMIs for AWS Batch compute resources to run GPU-enabled jobs using Amazon ECS GPU-optimized AMIs.
+- [Amazon Linux deprecation](https://docs.aws.amazon.com/batch/latest/userguide/al1-ami-deprecation.md): The Amazon Linux AMI (also called Amazon Linux 1) reached its end of life on December 31, 2023.
+- [Amazon EKS Amazon Linux 2 AMI deprecation](https://docs.aws.amazon.com/batch/latest/userguide/eks-al2-ami-deprecation.md): AWS ended support for Amazon EKS optimized Amazon Linux 2 AMIs on November 26, 2025.
+- [Amazon ECS Amazon Linux 2 AMI deprecation](https://docs.aws.amazon.com/batch/latest/userguide/ecs-al2-ami-deprecation.md): AWS is ending support for Amazon ECS Amazon Linux 2-optimized and accelerated AMIs on June 30, 2026.
+
+### [Use Amazon EC2 launch templates](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.md)
+
+AWS Batch supports using Amazon EC2 launch templates with your EC2 compute environments.
+
+- [Reference: Launch template examples](https://docs.aws.amazon.com/batch/latest/userguide/launch-template-examples.md): Examples of using Amazon EC2 launch templates with your EC2 compute environments.
+- [Instance Metadata Service (IMDS) configuration](https://docs.aws.amazon.com/batch/latest/userguide/imds-compute-environments.md): Configure Instance Metadata Service Version 2 (IMDSv2) for enhanced security in your AWS Batch compute environments.
+
+### [EC2 configurations](https://docs.aws.amazon.com/batch/latest/userguide/ec2-configurations.md)
+
+Configure Amazon EC2 settings for AWS Batch compute environments using Amazon ECS optimized AMIs including Amazon Linux 2 and AL2023 options.
+
+- [How to migrate from ECS AL2 to ECS AL2023](https://docs.aws.amazon.com/batch/latest/userguide/ecs-migration-2023.md): Upgrade AWS Batch on Amazon ECS compute environments from Amazon Linux 2 to Amazon Linux 2023 using different configuration methods.
+- [Instance type allocation strategies](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.md): Configure instance type allocation strategies for AWS Batch managed compute environments to optimize cost and capacity selection.
+
+### [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.md)
+
+Understand how AWS Batch manages memory allocation on compute resources, including platform overhead and available memory for job containers.
+
+- [Reserve system memory](https://docs.aws.amazon.com/batch/latest/userguide/ecs-reserved-memory.md): Configure memory reservation for critical system processes in AWS Batch compute resources using the ECS_RESERVED_MEMORY configuration variable.
+- [Tutorial: View compute resource memory](https://docs.aws.amazon.com/batch/latest/userguide/viewing-memory.md): Tutorial on viewing compute resource memory in AWS Batch using the Amazon ECS console to maximize resource utilization for job memory allocation.
+- [Memory and vCPU considerations for AWS Batch on Amazon EKS](https://docs.aws.amazon.com/batch/latest/userguide/memory-cpu-batch-eks.md): Discusses limits and reservations for memory and vCPU resources in AWS Batch on Amazon EKS jobs.
+
+### [Fargate compute environments](https://docs.aws.amazon.com/batch/latest/userguide/fargate.md)
+
+AWS Fargate is a technology that you can use with AWS Batch to run containers without having to manage servers or clusters of Amazon EC2 instances.
+
+- [When to use Fargate](https://docs.aws.amazon.com/batch/latest/userguide/when-to-use-fargate.md): We recommend using Fargate in most scenarios.
+- [Job definitions on Fargate](https://docs.aws.amazon.com/batch/latest/userguide/fargate-job-definitions.md): AWS Batch jobs on AWS Fargate don't support all of the job definition parameters that are available.
+- [Job queues on Fargate](https://docs.aws.amazon.com/batch/latest/userguide/fargate-job-queues.md): AWS Batch job queues on AWS Fargate are essentially unchanged.
+- [Compute environments on Fargate](https://docs.aws.amazon.com/batch/latest/userguide/fargate-compute-environments.md): AWS Batch compute environments on AWS Fargate don't support all of the compute environment parameters that are available.
+
+### [Amazon EKS compute environments](https://docs.aws.amazon.com/batch/latest/userguide/eks.md)
+
+AWS Batch simplifies your batch workloads on Amazon EKS clusters by providing managed batch capabilities.
+
+- [Amazon EKS default AMI](https://docs.aws.amazon.com/batch/latest/userguide/eks-ce-ami-selection.md): Understand how AWS Batch automatically selects Amazon EKS optimized AMIs for compute environments based on Kubernetes version and instance types.
+- [Mixed AMI environments](https://docs.aws.amazon.com/batch/latest/userguide/mixed-ami-environments.md): Create AWS Batch compute environments with mixed AMI types using launch template overrides to support both Amazon Linux 2 and Amazon Linux 2023.
+- [Supported Kubernetes versions](https://docs.aws.amazon.com/batch/latest/userguide/supported_kubernetes_version.md): View the currently supported Kubernetes versions for AWS Batch on Amazon EKS compute environments.
+- [Update the Kubernetes version of the compute environment](https://docs.aws.amazon.com/batch/latest/userguide/updating-k8s-version-ce.md): Update the Kubernetes version of AWS Batch compute environments to support Amazon EKS cluster upgrades using the UpdateComputeEnvironment API.
+- [Shared responsibility of the Kubernetes nodes](https://docs.aws.amazon.com/batch/latest/userguide/eks-ce-shared-responsibility.md): Understand the shared responsibility model for AWS Batch managed Kubernetes nodes and restrictions on node modifications and pod targeting.
+- [Run a DaemonSet on AWS Batch managed nodes](https://docs.aws.amazon.com/batch/latest/userguide/daemonset-on-batch-eks-nodes.md): Configure DaemonSets to run on AWS Batch managed Kubernetes nodes using tolerations to handle node taints.
+- [Customize Amazon EKS launch templates](https://docs.aws.amazon.com/batch/latest/userguide/eks-launch-templates.md): Customize Amazon EKS launch templates for AWS Batch on Amazon EKS compute environments with constraints and configuration requirements.
+- [How to upgrade from EKS AL2 to EKS AL2023](https://docs.aws.amazon.com/batch/latest/userguide/eks-migration-2023.md): Upgrade AWS Batch on Amazon EKS compute environments from Amazon Linux 2 to Amazon Linux 2023 using different configuration methods.
+
+
+## [Service environments](https://docs.aws.amazon.com/batch/latest/userguide/service-environments.md)
+
+- [What are service environments](https://docs.aws.amazon.com/batch/latest/userguide/what-are-service-environments.md): Understand AWS Batch service environments and how they integrate with SageMaker Training jobs.
+
+### [Service environment states and lifecycle](https://docs.aws.amazon.com/batch/latest/userguide/service-environment-states.md)
+
+Discover the lifecycle states of AWS Batch service environments and how they impact SageMaker Training job processing.
+
+- [Service environment state definitions](https://docs.aws.amazon.com/batch/latest/userguide/service-environment-state-definitions.md): Service environments can be in one of four possible states that indicate their current operational status and readiness to process SageMaker Training jobs.
+- [Create a service environment](https://docs.aws.amazon.com/batch/latest/userguide/create-service-environments.md): Learn how to create AWS Batch service environments for SageMaker Training integration.
+- [Update a service environment](https://docs.aws.amazon.com/batch/latest/userguide/updating-service-environments.md): Learn how to modifyAWS Batch service environments to adjust capacity limits, update operational state, or manage tags.
+- [Delete a service environment](https://docs.aws.amazon.com/batch/latest/userguide/deleting-service-environments.md): Learn the proper procedures for safely deleting AWS Batch service environments when they're no longer needed.
+
+
+## [Job queues](https://docs.aws.amazon.com/batch/latest/userguide/job_queues.md)
+
+### [Create a job queue](https://docs.aws.amazon.com/batch/latest/userguide/create-job-queue.md)
+
+Create AWS Batch job queues by associating compute environments and setting priorities to control job scheduling order.
+
+- [Create an Amazon EC2 job queue](https://docs.aws.amazon.com/batch/latest/userguide/create-job-queue-ec2.md): Complete the following steps to create a job queue for Amazon Elastic Compute Cloud (Amazon EC2).
+- [Create a Fargate job queue](https://docs.aws.amazon.com/batch/latest/userguide/create-job-queue-fargate.md): Complete the following steps to create a job queue for AWS Fargate.
+- [Create an Amazon EKS job queue](https://docs.aws.amazon.com/batch/latest/userguide/create-job-queue-eks.md): Complete the following steps to create a job queue for Amazon Elastic Kubernetes Service (Amazon EKS).
+- [Create a SageMaker job queue](https://docs.aws.amazon.com/batch/latest/userguide/create-sagemaker-job-queue.md): Learn how to create and configure an AWS Batch job queue for SageMaker Training jobs.
+- [Job queue template](https://docs.aws.amazon.com/batch/latest/userguide/job-queue-template.md): The following is an empty job queue template.
+- [View a job queue](https://docs.aws.amazon.com/batch/latest/userguide/job_queue_viewing_status.md): Monitor and view the status of AWS Batch job queues using the console to track job progress and manage queue operations.
+- [Delete a job queue](https://docs.aws.amazon.com/batch/latest/userguide/delete-job-queue.md): Learn how to properly disable and delete AWS Batch job queues when they're no longer needed.
+
+### [Fair-share scheduling policies](https://docs.aws.amazon.com/batch/latest/userguide/job_scheduling.md)
+
+Discusses how to use share identifiers and fair-share scheduling to determine the order that AWS Batch jobs are run in.
+
+- [Use share identifiers](https://docs.aws.amazon.com/batch/latest/userguide/share-identifiers.md): You can use share identifiers to tag jobs and differentiate between users and workloads.
+- [Use scheduling policies](https://docs.aws.amazon.com/batch/latest/userguide/scheduling-policies.md): Discusses using scheduling policies to allocate resources in an AWS Batch job queue.
+- [Use fair-share scheduling](https://docs.aws.amazon.com/batch/latest/userguide/fair-share-scheduling.md): Fair-share scheduling provides a set of controls to help schedule jobs.
+- [Tutorial: Create a fair-share scheduling policy](https://docs.aws.amazon.com/batch/latest/userguide/create-scheduling-policy.md): Tutorial on creating fair-share scheduling policies for AWS Batch job queues with share identifiers, weights, and compute reservations.
+- [Reference: Fair-share scheduling policy template](https://docs.aws.amazon.com/batch/latest/userguide/scheduling-policy-template.md): Reference template for creating AWS Batch fair-share scheduling policies using the AWS CLI with JSON configuration files and CreateSchedulingPolicy API.
+
+### [Resource-aware scheduling](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling.md)
+
+How to use resource-aware scheduling to run a job only when the consumable resources you define are available.
+
+- [Create consumable resources](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling-how-to-create.md): You must first create the consumable resources that represent the non-CE resources that are consumed when a job is running and are only available in limited quantities.
+- [Specify resources for a job](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling-how-to-for-jobs.md): When you register a job you can specify the name of one or more resources you created (consumableResource) and the quantity of that resource each instance of the job requires (quantity).
+- [Check resource usage](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling-how-to-check-resources-check-resources.md): Batch lets you query the number of available resources (availableQuantity), the number of resources in use (inUseQuantity), and the total resources (totalQuantity) at a given moment.
+- [Update in-use resource quantities](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling-how-to-update-quantity.md): You can reset the total quantity of a resource to a new value, add to the total quantity or subtract from it.
+- [Find jobs requiring a consumable resource](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling-how-to-find-jobs.md): Batch lets you retrieve a list of jobs that require a specific consumable resource.
+- [Delete a consumable resource](https://docs.aws.amazon.com/batch/latest/userguide/resource-aware-scheduling-how-to-delete.md): You can delete a consumable resource at any time, even when the jobs that require the resource are still running.
+
+### [Quota management](https://docs.aws.amazon.com/batch/latest/userguide/quota-management.md)
+
+Provides an overview of AWS Batch quota management scheduling.
+
+- [Quota shares](https://docs.aws.amazon.com/batch/latest/userguide/quota-shares.md): Overview of quota shares
+- [Preemption](https://docs.aws.amazon.com/batch/latest/userguide/preemption.md): Learn how preemption works with quota management in AWS Batch, including cross-share preemption, in-share preemption, and preemption retries.
+- [Create quota management resources](https://docs.aws.amazon.com/batch/latest/userguide/create-quota-management-resources.md): Learn how to create the scheduling policy, service environment, and job queue resources required for quota management in AWS Batch.
+- [Creating quota shares](https://docs.aws.amazon.com/batch/latest/userguide/create-quota-shares.md): Learn how to create and configure quota shares for quota management in AWS Batch.
+- [Submitting jobs to a quota share](https://docs.aws.amazon.com/batch/latest/userguide/submit-job-quota-share.md): Learn how to submit jobs to a quota share in AWS Batch.
+- [Track service job capacity utilization](https://docs.aws.amazon.com/batch/latest/userguide/track-capacity-utilization-service-jobs.md): Monitor and track service jobs in AWS Batch queues using GetJobQueueSnapshot to check queue and per-share capacity utilization, ListServiceJobs to find jobs by status and share, and DescribeServiceJob to examine individual job details.
+- [Track compute job capacity utilization](https://docs.aws.amazon.com/batch/latest/userguide/track-capacity-utilization-compute-jobs.md): Monitor and track ECS, EKS, and Fargate compute jobs in AWS Batch queues using GetJobQueueSnapshot to check queue and per-share capacity utilization, ListJobs to find jobs by status and share, and DescribeJobs to examine individual job details.
+
+
+## [Job definitions](https://docs.aws.amazon.com/batch/latest/userguide/job_definitions.md)
+
+### [Create a single-node job definition](https://docs.aws.amazon.com/batch/latest/userguide/create-job-definition.md)
+
+Create single-node job definitions for AWS Batch jobs across different compute platforms including Amazon EC2, Fargate, and Amazon EKS.
+
+- [Tutorial: Create a single-node job definition on Amazon EC2 resources](https://docs.aws.amazon.com/batch/latest/userguide/create-job-definition-EC2.md): Tutorial on creating single-node job definitions for AWS Batch jobs running on Amazon EC2 resources using the console.
+- [Create a single-node job definition on Fargate resources](https://docs.aws.amazon.com/batch/latest/userguide/create-job-definition-Fargate.md): Tutorial on creating single-node job definitions for AWS Batch jobs running on Fargate resources using the console.
+- [Create a single-node job definition on Amazon EKS resources](https://docs.aws.amazon.com/batch/latest/userguide/create-job-definition-eks.md): Tutorial on creating single-node job definitions for AWS Batch jobs running on Amazon EKS resources using the console.
+- [Create a single-node job definition with multiple containers on Amazon EC2 resources](https://docs.aws.amazon.com/batch/latest/userguide/create-job-definition-single-node-multi-container.md): Tutorial on creating single-node job definitions with multiple containers for AWS Batch jobs running on Amazon EC2 resources.
+
+### [Create a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/create-multi-node-job-def.md)
+
+Create job definitions for AWS Batch multi-node parallel jobs with gang scheduling to run distributed workloads across multiple compute resources.
+
+- [Tutorial: Create a multi-node parallel job definition on Amazon EC2 resources](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def-ec2.md): To create a multi-node parallel job definition on Amazon Elastic Compute Cloud (Amazon EC2) resources.
+
+### [Reference: Job definition template using ContainerProperties](https://docs.aws.amazon.com/batch/latest/userguide/job-definition-template.md)
+
+Reference template for creating AWS Batch job definitions using ContainerProperties with the AWS CLI and JSON configuration files.
+
+- [Job definition parameters for ContainerProperties](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.md): Reference guide for job definition parameters when using ContainerProperties in AWS Batch job definitions across different compute platforms.
+
+### [Create job definitions using EcsProperties](https://docs.aws.amazon.com/batch/latest/userguide/multi-container-jobs.md)
+
+Create AWS Batch job definitions using EcsProperties to organize workload components in separate containers across Amazon ECS, Amazon EKS, and Fargate.
+
+- [Reference: AWS Batch job scenarios using EcsProperties](https://docs.aws.amazon.com/batch/latest/userguide/multi-container-jobs-scenarios.md): Reference examples of AWS Batch job scenarios using EcsProperties with RegisterJobDefinition payloads for Amazon ECS, Amazon EKS, and Fargate platforms.
+- [Use the awslogs log driver](https://docs.aws.amazon.com/batch/latest/userguide/using_awslogs.md): Configure the awslogs log driver in AWS Batch job definitions to send container logs to CloudWatch Logs for centralized logging and monitoring.
+
+### [Specify sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.md)
+
+Inject sensitive data into AWS Batch jobs using Secrets Manager secrets or Systems Manager Parameter Store parameters as environment variables or log configuration.
+
+- [Use Secrets Manager](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data-secrets.md): Inject sensitive data into AWS Batch jobs by storing data in Secrets Manager secrets and referencing them in job definitions as environment variables.
+- [Use Systems Manager Parameter Store](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data-parameters.md): Inject sensitive data into AWS Batch containers by storing data in Systems Manager Parameter Store and referencing parameters in container definitions.
+
+### [Private registry authentication for jobs](https://docs.aws.amazon.com/batch/latest/userguide/private-registry.md)
+
+Configure private registry authentication for AWS Batch jobs using AWS Secrets Manager to securely store credentials and access container images from external registries.
+
+- [Required IAM permissions for private registry authentication](https://docs.aws.amazon.com/batch/latest/userguide/private-auth-iam.md): The execution role is required to use this feature.
+- [Tutorial: Create a secret for private registry authentication](https://docs.aws.amazon.com/batch/latest/userguide/private-auth-enable.md): Complete the following steps to create a secret for your private registry credentials with AWS Secrets Manager.
+- [Amazon EFS volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.md): Use Amazon EFS volumes with AWS Batch jobs to provide scalable, persistent file storage across container instances in your compute environments.
+- [Amazon S3 Files volumes](https://docs.aws.amazon.com/batch/latest/userguide/s3files-volumes.md): Use Amazon S3 Files volumes with AWS Batch jobs to give containers direct file system access to data stored in Amazon S3 buckets.
+
+### [Job definition examples](https://docs.aws.amazon.com/batch/latest/userguide/example-job-definitions.md)
+
+Reference examples of AWS Batch job definitions demonstrating common patterns like environment variables, parameter substitution, and volume mounts.
+
+- [Environment variables](https://docs.aws.amazon.com/batch/latest/userguide/example-use-envvars.md): The following example job definition uses environment variables to specify a file type and Amazon S3 URL.
+- [Parameter substitution](https://docs.aws.amazon.com/batch/latest/userguide/example-use-parameters.md): The following example job definition illustrates how to allow for parameter substitution and to set default values.
+- [Test GPU functionality](https://docs.aws.amazon.com/batch/latest/userguide/example-test-gpu.md): The following example job definition tests if the GPU workload AMI described in is configured properly.
+- [Multi-node parallel job](https://docs.aws.amazon.com/batch/latest/userguide/example-mnp-job-definition.md): The following example job definition illustrates a multi-node parallel job.
+
+
+## [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.md)
+
+- [Tutorial: submit a job](https://docs.aws.amazon.com/batch/latest/userguide/submit_job.md): Learn how to submit jobs to AWS Batch job queues using the console, including overriding job definition parameters at runtime.
+
+### [Service jobs](https://docs.aws.amazon.com/batch/latest/userguide/service-jobs.md)
+
+Explore AWS Batch service jobs for SageMaker Training jobs.
+
+- [Service job payloads](https://docs.aws.amazon.com/batch/latest/userguide/service-job-payload.md): Learn how to structure AWS Batch service job payloads for SageMaker Training jobs.
+- [Submit a service job](https://docs.aws.amazon.com/batch/latest/userguide/service-job-submit.md): Learn the process of submitting SageMaker Training jobs through AWS Batch.
+- [Service job status](https://docs.aws.amazon.com/batch/latest/userguide/service-job-status.md): Understand how AWS Batch service job status values map to SageMaker Training job states.
+- [Service job retry strategies](https://docs.aws.amazon.com/batch/latest/userguide/service-job-retries.md): Configure retry strategies for service jobs.
+- [Monitor service jobs in the queue](https://docs.aws.amazon.com/batch/latest/userguide/monitor-sagemaker-job-queue.md): Monitor and track SageMaker Training jobs in AWS Batch queues using the AWS CLI.
+- [Terminate service jobs](https://docs.aws.amazon.com/batch/latest/userguide/terminate-service-jobs.md): Use the TerminateServiceJob operation to stop a running service job.
+- [Job states](https://docs.aws.amazon.com/batch/latest/userguide/job_states.md): Understand AWS Batch job states and lifecycle transitions from SUBMITTED through RUNNABLE to completion or failure.
+- [Job environment variables](https://docs.aws.amazon.com/batch/latest/userguide/job_env_vars.md): Learn about environment variables that AWS Batch automatically sets in container jobs, including AWS_BATCH_ prefixed variables for job introspection.
+- [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.md): Configure automated retry strategies for AWS Batch jobs to handle failures from container exits, instance termination, and service errors.
+- [Job dependencies](https://docs.aws.amazon.com/batch/latest/userguide/job_dependencies.md): Configure job dependencies in AWS Batch to control job execution order and ensure jobs run only after their dependencies complete successfully.
+- [Job timeouts](https://docs.aws.amazon.com/batch/latest/userguide/job_timeouts.md): Configure timeout duration for AWS Batch jobs using attemptDurationSeconds to automatically terminate long-running or stuck jobs.
+
+### [Amazon EKS jobs](https://docs.aws.amazon.com/batch/latest/userguide/eks-jobs.md)
+
+A job is the smallest unit of work in AWS Batch.
+
+- [Tutorial: Map a running job to a pod and a node](https://docs.aws.amazon.com/batch/latest/userguide/eks-jobs-map-running-job.md): The podProperties of a running job have podName and nodeName parameters set for the current job attempt.
+- [Tutorial: Map a running pod back to its job](https://docs.aws.amazon.com/batch/latest/userguide/eks-jobs-map-running-pod-to-job.md): A pod has labels that indicate the jobId and uuid of the compute environment that it belongs to.
+
+### [Multi-node parallel jobs](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.md)
+
+Run large-scale, high-performance computing applications using AWS Batch multi-node parallel jobs that span multiple Amazon EC2 instances with gang scheduling.
+
+- [Environment variables](https://docs.aws.amazon.com/batch/latest/userguide/mnp-env-vars.md): At runtime, each node is configured the standard environment variables that all AWS Batch jobs receive.
+- [Node groups](https://docs.aws.amazon.com/batch/latest/userguide/mnp-node-groups.md): A node group is an identical group of job nodes that all share the same container properties.
+- [Job lifecycle](https://docs.aws.amazon.com/batch/latest/userguide/job-lifecycle.md): When you submit a multi-node parallel job, the job enters the SUBMITTED status.
+- [Compute environment considerations](https://docs.aws.amazon.com/batch/latest/userguide/mnp-ce.md): There are several things to consider when configuring compute environments to run multi-node parallel jobs with AWS Batch.
+
+### [Multi-node parallel jobs on Amazon EKS](https://docs.aws.amazon.com/batch/latest/userguide/mnp-eks-jobs.md)
+
+You can use AWS Batch on Amazon Elastic Kubernetes Service to run multi-node parallel (MNP) jobs on your managed Kubernetes clusters.
+
+- [Running MNP jobs](https://docs.aws.amazon.com/batch/latest/userguide/mnp-eks-running-mnp-jobs.md): AWS Batch supports MNP jobs on Amazon Elastic Container Service and Amazon EKS using Amazon EC2.
+- [Create an Amazon EKS MNP job definition](https://docs.aws.amazon.com/batch/latest/userguide/mnp-eks-create-eks-mnp-job-definition.md): To define and run MNP jobs on Amazon EKS, there are new parameters within the RegisterJobDefinition and SubmitJob API operations.
+- [Submit an Amazon EKS MNP job](https://docs.aws.amazon.com/batch/latest/userguide/mnp-eks-submit-eks-mnp-job.md): To submit a job using the registered job definition, enter the following command.
+- [Override an Amazon EKS MNP job definition](https://docs.aws.amazon.com/batch/latest/userguide/mnp-eks-override-eks-mnp-job-definition.md): Optionally, you can override the job definition details (such as changing the MNP job size or child job details).
+
+### [Array jobs](https://docs.aws.amazon.com/batch/latest/userguide/array_jobs.md)
+
+Submit and manage array jobs in AWS Batch for parallel processing of large workloads such as Monte Carlo simulations and parametric sweeps.
+
+- [Example of an array job workflow](https://docs.aws.amazon.com/batch/latest/userguide/example_array_job.md): Reference example of an array job workflow in AWS Batch showing setup, parallel processing, and aggregation phases with job dependencies.
+
+### [Using array job index](https://docs.aws.amazon.com/batch/latest/userguide/array_index_example.md)
+
+Tutorial on using the AWS_BATCH_JOB_ARRAY_INDEX environment variable to differentiate child jobs in AWS Batch array jobs.
+
+- [Prerequisites](https://docs.aws.amazon.com/batch/latest/userguide/array-tutorial-prereqs.md): This tutorial workflow has the following prerequisites:
+- [Build a container image](https://docs.aws.amazon.com/batch/latest/userguide/build-index-container.md): You can use the AWS_BATCH_JOB_ARRAY_INDEX in a job definition in the command parameter.
+- [Push your image to Amazon ECR](https://docs.aws.amazon.com/batch/latest/userguide/push-array-image.md): Now that you built and tested your Docker container, push it to an image repository.
+- [Create and register a job definition](https://docs.aws.amazon.com/batch/latest/userguide/create-array-job-def.md): Now that your Docker image is in an image registry, you can specify it in an AWS Batch job definition.
+- [Submit an AWS Batch array job](https://docs.aws.amazon.com/batch/latest/userguide/submit-array-job.md): After you registered your job definition, you can submit an AWS Batch array job that uses your new container image.
+
+### [Run GPU jobs](https://docs.aws.amazon.com/batch/latest/userguide/gpu-jobs.md)
+
+Run GPU-enabled jobs in AWS Batch using GPU-based Amazon EC2 instance types for compute-intensive workloads requiring graphics processing.
+
+- [Create a GPU-based Kubernetes cluster on Amazon EKS](https://docs.aws.amazon.com/batch/latest/userguide/create-gpu-cluster-eks.md): This section covers how to run an Amazon EKS GPU workload on AWS Batch.
+- [Create an Amazon EKS GPU job definition](https://docs.aws.amazon.com/batch/latest/userguide/create-eks-gpu-job-definition.md): Only nvidia.com/gpu is supported at this time and resource value that you set must be a whole number.
+- [Run a GPU job in your Amazon EKS cluster](https://docs.aws.amazon.com/batch/latest/userguide/run-gpu-job-eks-cluster.md): The GPU resource is non-compressible.
+- [View jobs in a job queue](https://docs.aws.amazon.com/batch/latest/userguide/view-jobs.md): View a job queue to find jobs status.
+- [Search for jobs in a job queue](https://docs.aws.amazon.com/batch/latest/userguide/searching-filtering-jobs.md): Use in AWS Batch to find jobs in a job queue.
+- [Networking modes for AWS Batch jobs](https://docs.aws.amazon.com/batch/latest/userguide/networking-modes-jobs.md): Use in AWS Batch to find jobs in a job queue.
+- [View job logs in CloudWatch Logs](https://docs.aws.amazon.com/batch/latest/userguide/review-job-logs.md): Use Job logs to monitor or troubleshoot an AWS Batch job.
+- [Review AWS Batch job information](https://docs.aws.amazon.com/batch/latest/userguide/review-job-info.md): Review AWS Batch job information and details
+
+
+## [Security in AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/security.md)
+
+### [Identity and Access Management](https://docs.aws.amazon.com/batch/latest/userguide/security-iam.md)
+
+How to authenticate requests and manage access your AWS Batch resources.
+
+- [How AWS Batch works with IAM](https://docs.aws.amazon.com/batch/latest/userguide/security_iam_service-with-iam.md): Understand how AWS Batch integrates with IAM for authentication, authorization, and access control using policies, roles, and permissions.
+- [Identity-based policy examples](https://docs.aws.amazon.com/batch/latest/userguide/security_iam_id-based-policy-examples.md): By default, users and roles don't have permission to create or modify AWS Batch resources.
+- [AWS managed policies](https://docs.aws.amazon.com/batch/latest/userguide/security-iam-awsmanpol.md): Learn about AWS managed policies for AWS Batch and recent changes to those policies.
+
+### [IAM policies, roles, and permissions](https://docs.aws.amazon.com/batch/latest/userguide/IAM_policies.md)
+
+Control which AWS Batch resources can be viewed, created, and modified by users.
+
+- [IAM policy structure](https://docs.aws.amazon.com/batch/latest/userguide/iam-policy-structure.md): Learn about the structure of an IAM policy for controlling access to AWS Batch.
+
+### [Resource: Example policies](https://docs.aws.amazon.com/batch/latest/userguide/ExamplePolicies_BATCH.md)
+
+Learn to create policy statements to control the permissions that users have for AWS Batch.
+
+- [Read-only access](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-read-only.md): The following policy grants users permissions to use all AWS Batch API actions with a name that starts with Describe and List.
+- [Resource: Restrict user, image, privilege, role](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-job-def.md): The following policy allows a POSIX user to manage their own set of restricted job definitions.
+- [Restrict job submission](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-restrict-job-submission.md): Use the following policy to submit jobs to any job queue with any job definition name that starts with JobDefA.
+- [Restrict to a job queue](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-restrict-job-queue.md): Use the following policy to submit jobs to a specific job queue that's named queue1 with any job definition name.
+- [Deny action when all conditions match strings](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-job-def-deny-all-image-logdriver.md): The following policy denies access to the RegisterJobDefinition API operation when both the batch:Image (container image ID) condition key is "string1" and the batch:LogDriver (container log driver) condition key is "string2." AWS Batch evaluates condition keys on each container.
+- [Resource: Deny action when any condition keys match strings](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-job-def-deny-any-image-logdriver.md): The following policy denies access to the RegisterJobDefinition API operation when either the batch:Image (container image ID) condition key is "string1" or the batch:LogDriver (container log driver) condition key is "string2." When a job spans multiple containers such as a multi-node parallel job, it's possible for the containers to have different configurations.
+- [Use the batch:ShareIdentifier condition key](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-share-identifier.md): Use the following policy to submit jobs that use the jobDefA job definition to the jobqueue1 job queue with the lowCpu share identifier.
+- [Manage SageMaker AI resources with AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-full-access-service-environment.md): This policy allows AWS Batch to manage SageMaker AI resources.
+- [Restrict job submission by resource tags](https://docs.aws.amazon.com/batch/latest/userguide/iam-example-restrict-job-submission-by-tags.md): Use the following policy to submit jobs only when both the job queue has the tag Environment=dev and the job definition has the tag Project=calc.
+- [Resource: AWS Batch managed policy](https://docs.aws.amazon.com/batch/latest/userguide/batch_managed_policies.md): Use AWS managed policies for AWS Batch to provide predefined permissions for users, or as starting points for custom policies.
+
+### [AWS Batch IAM execution role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.md)
+
+Discusses how to verify or create an IAM execution role for AWS Batch.
+
+- [Supported resource-level permissions](https://docs.aws.amazon.com/batch/latest/userguide/batch-supported-iam-actions-resources.md): Learn about the AWS Batch API actions that currently support resource-level permissions.
+- [Tutorial: Create the IAM execution role](https://docs.aws.amazon.com/batch/latest/userguide/create-execution-role.md): If your account doesn't already have an IAM execution role, use the following steps to create the role.
+- [Tutorial: Check the IAM execution role](https://docs.aws.amazon.com/batch/latest/userguide/check-execution-role.md): Use the following procedure to check that your account already has the IAM execution role and attach the managed IAM policy, if needed.
+
+### [Using service-linked roles](https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles.md)
+
+How to use service-linked roles to give AWS Batch access to resources in your AWS account.
+
+- [Compute Environment integration role](https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles-batch-general.md): How to use service-linked roles to give AWS Batch access to resources in your AWS account.
+- [SageMaker integration role](https://docs.aws.amazon.com/batch/latest/userguide/using-service-linked-roles-batch-sagemaker.md): How to use service-linked roles to give AWS Batch access to resources in your AWS account.
+
+### [Amazon ECS instance role](https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.md)
+
+Configure Amazon ECS instance roles for AWS Batch compute environment container instances to enable Amazon ECS container agent AWS API access.
+
+- [Check your instance role](https://docs.aws.amazon.com/batch/latest/userguide/batch-check-ecsinstancerole.md): The Amazon ECS instance role and instance profile are automatically created for you in the console first-run experience.
+
+### [Amazon EC2 spot fleet role](https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.md)
+
+Create the AmazonEC2SpotFleetTaggingRole and service-linked roles required for AWS Batch managed compute environments using Amazon EC2 Spot Fleet instances.
+
+- [Create Amazon EC2 spot fleet roles in the AWS Management Console](https://docs.aws.amazon.com/batch/latest/userguide/spot-fleet-roles-console.md)
+- [Create Amazon EC2 spot fleet roles with the AWS CLI](https://docs.aws.amazon.com/batch/latest/userguide/spot-fleet-roles-cli.md)
+- [EventBridge IAM role](https://docs.aws.amazon.com/batch/latest/userguide/CWE_IAM_role.md): Configure EventBridge IAM roles to enable EventBridge to submit AWS Batch jobs on your behalf using event-driven rules and targets.
+- [Create a virtual private cloud](https://docs.aws.amazon.com/batch/latest/userguide/create-public-private-vpc.md): Create a VPC with both public and private subnets for AWS Batch compute environments to provide flexible network access options.
+
+### [VPC endpoints](https://docs.aws.amazon.com/batch/latest/userguide/vpc-interface-endpoints.md)
+
+You can use an AWS PrivateLink to create a private connection between your VPC and AWS Batch.
+
+- [Considerations](https://docs.aws.amazon.com/batch/latest/userguide/vpc-endpoint-considerations.md): Before you set up an interface endpoint for AWS Batch, review Interface endpoint properties and limitations in the AWS PrivateLink Guide.
+- [Create an interface endpoint](https://docs.aws.amazon.com/batch/latest/userguide/vpc-endpoint-create.md): You can create an interface endpoint for AWS Batch using either the Amazon VPC console or the AWS Command Line Interface (AWS CLI).
+- [Create an endpoint policy](https://docs.aws.amazon.com/batch/latest/userguide/vpc-endpoint-policy.md): An endpoint policy is an IAM resource that you can attach to an interface endpoint.
+- [Compliance validation](https://docs.aws.amazon.com/batch/latest/userguide/compliance.md): Learn what AWS services are in scope of a specific compliance program.
+- [Infrastructure security](https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-security.md): Learn how AWS Batch isolates service traffic.
+- [Cross-service confused deputy prevention](https://docs.aws.amazon.com/batch/latest/userguide/cross-service-confused-deputy-prevention.md): Prevent cross-service confused deputy attacks in AWS Batch by implementing proper IAM policies and security controls for service-to-service interactions.
+
+### [CloudTrail](https://docs.aws.amazon.com/batch/latest/userguide/logging-using-cloudtrail.md)
+
+Learn about logging AWS Batch with AWS CloudTrail.
+
+- [AWS Batch information in CloudTrail](https://docs.aws.amazon.com/batch/latest/userguide/service-name-info-in-cloudtrail.md): CloudTrail is enabled on your AWS account when you create the account.
+- [Reference: Understanding AWS Batch log file entries](https://docs.aws.amazon.com/batch/latest/userguide/understanding-service-name-entries.md): A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify.
+- [Troubleshoot AWS Batch IAM](https://docs.aws.amazon.com/batch/latest/userguide/security_iam_troubleshoot.md): Troubleshoot common IAM authentication and authorization issues when working with AWS Batch resources and API operations.
+
+
+## [AWS Step Functions](https://docs.aws.amazon.com/batch/latest/userguide/stepfunctions-batch-console.md)
+
+- [Tutorial: View state machine details](https://docs.aws.amazon.com/batch/latest/userguide/stepfunctions-configure.md): The AWS Batch console displays a list of your state machines in the current AWS Region that contain at least one workflow step that submits a AWS Batch job.
+- [Tutorial: Edit a state machine](https://docs.aws.amazon.com/batch/latest/userguide/stepfunctions-edit.md): When you want to edit a state machine, AWS Batch opens the Edit definition page of the Step Functions console.
+- [Tutorial: Run a state machine](https://docs.aws.amazon.com/batch/latest/userguide/stepfunctions-run.md): When you want to run a state machine, AWS Batch opens the New execution page of the Step Functions console.
+
+
+## [Amazon EventBridge](https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch_event_stream.md)
+
+### [AWS Batch events](https://docs.aws.amazon.com/batch/latest/userguide/batch_cwe_events.md)
+
+AWS Batch sends job status change events to EventBridge.
+
+- [Job state change events](https://docs.aws.amazon.com/batch/latest/userguide/batch_job_events.md): Anytime that an existing (previously submitted) job changes states, an event is created.
+- [Job queue blocked events](https://docs.aws.amazon.com/batch/latest/userguide/batch-job-queue-blocked-events.md): Anytime that AWS Batch detects a job in the RUNNABLE state and thus blocking a queue, an event is created in Amazon CloudWatch Events.
+- [Service job state change events](https://docs.aws.amazon.com/batch/latest/userguide/service-job-events.md): Anytime that an existing service job changes states, an event is created.
+- [Service job queue blocked events](https://docs.aws.amazon.com/batch/latest/userguide/batch-service-job-queue-blocked-events.md): Anytime that AWS Batch detects a blocked queue, an event is created in Amazon CloudWatch Events.
+- [Service job preemption events](https://docs.aws.amazon.com/batch/latest/userguide/batch-service-job-preemption-events.md): Preemption events are published whenever a preemption sequence starts or completes.
+- [Tutorial: Use AWS user notifications with AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/using-user-notifications.md): Learn how to get notifications for AWS Batch.
+
+### [AWS Batch jobs as EventBridge targets](https://docs.aws.amazon.com/batch/latest/userguide/batch-cwe-target.md)
+
+Discusses how to submit AWS Batch jobs with EventBridge rules and targets.
+
+- [Tutorial: Create a scheduled job](https://docs.aws.amazon.com/batch/latest/userguide/scheduled-batch-job.md): The following procedure covers how to create a scheduled AWS Batch job and the required EventBridge IAM role.
+- [Tutorial: Create a rule with an event pattern](https://docs.aws.amazon.com/batch/latest/userguide/event-pattern-batch-job.md): The following procedure covers how to create a rule with an event pattern.
+- [Tutorial: Pass input transformer](https://docs.aws.amazon.com/batch/latest/userguide/cwe-input-transformer.md): You can use the EventBridge input transformer to pass event information to AWS Batch in a job submission.
+
+### [Tutorial: Listen for AWS Batch job events](https://docs.aws.amazon.com/batch/latest/userguide/batch_cwet.md)
+
+Tutorial on setting up a Lambda function to listen for AWS Batch job events using EventBridge and write them to CloudWatch Logs.
+
+- [Tutorial: Create the Lambda function](https://docs.aws.amazon.com/batch/latest/userguide/cwet_create_lam.md): In this procedure, you create a simple Lambda function to serve as a target for AWS Batch event stream messages.
+- [Tutorial: Register the event rule](https://docs.aws.amazon.com/batch/latest/userguide/cwet_register_event_rule.md): In this section, you create an EventBridge event rule that captures job events that are coming from your AWS Batch resources.
+- [Tutorial: Test your configuration](https://docs.aws.amazon.com/batch/latest/userguide/cwet_test.md): You can now test your EventBridge configuration by submitting a job to your job queue.
+
+### [Tutorial: Sending Amazon Simple Notification Service alerts for failed job events](https://docs.aws.amazon.com/batch/latest/userguide/batch_sns_tutorial.md)
+
+Tutorial on configuring Amazon SNS alerts for failed AWS Batch job events using EventBridge event rules to monitor job failures.
+
+- [Tutorial: Create and subscribe to an Amazon SNS topic](https://docs.aws.amazon.com/batch/latest/userguide/batch_sns_create_topic.md): For this tutorial, you configure an Amazon SNS topic to serve as an event target for your new event rule.
+- [Tutorial: Register an event rule](https://docs.aws.amazon.com/batch/latest/userguide/batch_sns_reg_rule.md): Next, register an event rule that captures only job-failed events.
+- [Tutorial: Test your rule](https://docs.aws.amazon.com/batch/latest/userguide/batch_sns_test_rule.md): To test your rule, submit a job that exits shortly after it starts with a non-zero exit code.
+
+
+## [Monitor AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/logging-and-moritoring-batch.md)
+
+### [CloudWatch Logs](https://docs.aws.amazon.com/batch/latest/userguide/using_cloudwatch_logs.md)
+
+Configure AWS Batch jobs to send log information to CloudWatch Logs for centralized monitoring and troubleshooting of job execution.
+
+- [Tutorial: Add a CloudWatch Logs IAM policy](https://docs.aws.amazon.com/batch/latest/userguide/cwl_iam_policy.md): Before your jobs can send log data and detailed metrics to CloudWatch Logs, you must create an IAM policy that uses the CloudWatch Logs APIs.
+- [Install and configure the CloudWatch agent](https://docs.aws.amazon.com/batch/latest/userguide/installing_cwl_agent.md): You can create an Amazon EC2 launch template that includes CloudWatch monitoring.
+- [Tutorial: View CloudWatch Logs](https://docs.aws.amazon.com/batch/latest/userguide/viewing_cwlogs.md): You can view and search CloudWatch Logs logs in the AWS Management Console.
+
+### [CloudWatch Container Insights](https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.md)
+
+Turn on CloudWatch Container Insights to view aggregated metrics for AWS Batch compute environments and jobs.
+
+- [Turn on Container Insights](https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights-working.md): Complete the following steps to turn on Container Insights for AWS Batch compute environments.
+- [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](https://docs.aws.amazon.com/batch/latest/userguide/batch-eks-cloudwatch-logs.md): Install the AWS for Fluent Bit image to monitor AWS Batch on Amazon EKS jobs using CloudWatch Logs.
+- [AWS Health Planned lifecycle events](https://docs.aws.amazon.com/batch/latest/userguide/batch-planned-lifecycle-events.md): Learn how to use AWS Health planned lifecycle events to prepare for changes that affect your AWS Batch resources, track migration progress, and automate responses.
+
+
+## [Tag your resources](https://docs.aws.amazon.com/batch/latest/userguide/using-tags.md)
+
+- [Tag basics](https://docs.aws.amazon.com/batch/latest/userguide/tag-basics.md): A tag is a label that you assign to an AWS resource.
+- [Tag your resources](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources.md): You can tag new or existing AWS Batch compute environments, jobs, job definitions, job queues, and scheduling policies.
+- [Tag restrictions](https://docs.aws.amazon.com/batch/latest/userguide/tag-restrictions.md): The following basic restrictions apply to tags:
+- [Tutorial: Manage tags using the console](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources-console.md): Using the AWS Batch console, you can manage the tags associated with new or existing compute environments, jobs, job definitions, and job queues.
+- [Manage tags using the CLI or API](https://docs.aws.amazon.com/batch/latest/userguide/tag-resources-api-sdk.md): Use the following AWS CLI commands or AWS Batch API operations to add, update, list, and delete the tags for your resources.
+
+
+## [Best practices](https://docs.aws.amazon.com/batch/latest/userguide/best-practices.md)
+
+- [When to use AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice1.md): AWS Batch runs jobs at scale and at low cost, and provides queuing services and cost-optimized scaling.
+- [Checklist to run at scale](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice2.md): Before you run a large workload on 50 thousand or more vCPUs, consider the following checklist.
+- [Optimize containers and AMIs](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice3.md): Container size and structure are important for the first set of jobs that you run.
+- [Choose the right compute environment resource](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice4.md): AWS Fargate requires less initial setup and configuration than Amazon EC2 and is likely easier to use, particularly if it's your first time.
+- [Amazon EC2 On-Demand or Amazon EC2 Spot](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice5.md): Most AWS Batch customers use Amazon EC2 Spot instances because of the savings over On-Demand instances.
+- [Use Amazon EC2 Spot best practices for AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice6.md): When you choose Amazon Elastic Compute Cloud (EC2) Spot instances, you likely can optimize your workflow to save costs, sometimes significantly.
+- [Common errors and troubleshooting](https://docs.aws.amazon.com/batch/latest/userguide/bestpractice7.md): Errors in AWS Batch often occur at the application level or are caused by instance configurations that don’t meet your specific job requirements.
+
+
+## [Troubleshooting](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.md)
+
+### [AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/batch-troubleshooting.md)
+
+Review the following topics to find review processes and potential solutions to common issues that you may encounter when using AWS Batch.
+
+- [Optimal instance type configuration to receive automatic instance family updates](https://docs.aws.amazon.com/batch/latest/userguide/optimal-default-instance-troubleshooting.md): AWS Batch supported a single option in instanceTypes for optimal to match the demand of your job queues.
+- [INVALID compute environment](https://docs.aws.amazon.com/batch/latest/userguide/invalid_compute_environment.md): Troubleshoot AWS Batch compute environments in INVALID state by identifying configuration issues and understanding managed resource constraints.
+
+### [Jobs stuck in a RUNNABLE status](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable.md)
+
+Troubleshoot AWS Batch jobs stuck in RUNNABLE status by identifying queue blocking issues and using CloudWatch Events for monitoring.
+
+- [Capacity](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable_capacity.md): Troubleshoot AWS Batch jobs stuck in RUNNABLE status due to insufficient Amazon EC2 instance capacity errors.
+- [Misconfiguration](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable_misconfiguration.md): Troubleshoot AWS Batch jobs stuck in RUNNABLE status due to compute environment or job definition misconfiguration issues.
+- [Invalid compute environments](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable_invalid_ce.md): Troubleshoot AWS Batch jobs stuck in RUNNABLE status because all connected compute environments are invalid.
+- [Undetermined root cause](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable_undetermined.md): Troubleshoot AWS Batch jobs stuck in RUNNABLE status when the root cause cannot be automatically determined.
+- [Automatic remediation](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable_time_limit_actions.md): Use the jobStateTimeLimitActions parameter to automatically cancel or remediate AWS Batch jobs stuck in RUNNABLE status after a configurable time threshold.
+- [Common causes of jobs stuck in RUNNABLE without a statusReason](https://docs.aws.amazon.com/batch/latest/userguide/job_stuck_in_runnable_common_causes.md): Identify common reasons why AWS Batch jobs get stuck in RUNNABLE status when no statusReason is provided, including network, resource, and agent configuration issues.
+- [Spot Instances not tagged on creation](https://docs.aws.amazon.com/batch/latest/userguide/spot-instance-no-tag.md): Troubleshoot Spot Instance tagging issues in AWS Batch compute environments and apply the correct IAM managed policy for tagging permissions.
+- [Spot Instances not scaling down](https://docs.aws.amazon.com/batch/latest/userguide/spot-fleet-not-authorized.md): Troubleshoot Spot Instances scaling issues related to AWSServiceRoleForBatch service-linked role and AmazonEC2SpotFleetTaggingRole policy requirements.
+- [Can't retrieve Secrets Manager secrets](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting-cant-specify-secrets.md): Troubleshoot issues retrieving Secrets Manager secrets in AWS Batch jobs by configuring the Amazon ECS agent with proper execution role settings.
+- [Can't override job definition resource requirements](https://docs.aws.amazon.com/batch/latest/userguide/override-resource-requirements.md): Troubleshoot issues when attempting to override job definition resource requirements using containerOverrides in SubmitJob operations.
+- [Error message when you update the desiredvCpus setting](https://docs.aws.amazon.com/batch/latest/userguide/error-desired-vcpus-update.md): Troubleshoot error messages when updating the desiredvCpus setting in AWS Batch compute environments and understand scaling constraints.
+
+### [AWS Batch on Amazon EKS](https://docs.aws.amazon.com/batch/latest/userguide/batch-eks-troubleshooting.md)
+
+- [INVALID compute environment](https://docs.aws.amazon.com/batch/latest/userguide/batch_eks_invalid_compute_environment.md): Troubleshoot AWS Batch on Amazon EKS compute environments in INVALID state by identifying configuration issues and resolving common problems.
+- [AWS Batch on Amazon EKS job is stuck in RUNNABLE status](https://docs.aws.amazon.com/batch/latest/userguide/batch_eks_job_stuck_in_runnable.md): Troubleshoot AWS Batch jobs stuck in RUNNABLE state on Amazon EKS by verifying aws-auth ConfigMap configuration and RBAC permissions.
+- [AWS Batch on Amazon EKS job is stuck in STARTING status](https://docs.aws.amazon.com/batch/latest/userguide/batch-eks-job-stuck-in-starting.md): Troubleshoot AWS Batch on Amazon EKS jobs stuck in STARTING status by diagnosing Pod issues and using kubectl to identify problems.
+- [Verify that the aws-auth ConfigMap is configured correctly](https://docs.aws.amazon.com/batch/latest/userguide/verify-configmap-config.md): Verify that the aws-auth ConfigMap is configured correctly for AWS Batch on Amazon EKS by checking role mappings and service role configuration.
+- [RBAC permissions or bindings aren't configured properly](https://docs.aws.amazon.com/batch/latest/userguide/batch_eks_rbac.md): Troubleshoot RBAC permissions and bindings for AWS Batch on Amazon EKS by verifying aws-batch role access to Kubernetes namespaces.
