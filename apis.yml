@@ -170,6 +170,12 @@ apis:
           Use Fargate compute environments to run batch jobs with no EC2
           instance management and per-second billing.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/amazon-batch-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-batch-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-batch-authentication.yml
   - type: Portal
     url: https://console.aws.amazon.com/
   - type: Website
