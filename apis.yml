@@ -170,6 +170,8 @@ apis:
           Use Fargate compute environments to run batch jobs with no EC2
           instance management and per-second billing.
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-batch-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/amazon-batch-vulnerability-disclosure.yml
   - type: DomainSecurity
