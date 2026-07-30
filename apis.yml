@@ -3,7 +3,19 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/apis.yml
 name: Amazon Batch
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-batch.png
 specificationVersion: '0.19'
 description: >-
   AWS Batch enables developers, scientists, and engineers to easily and
@@ -26,149 +38,114 @@ tags:
   - EKS
   - Spot Instances
 apis:
-  - aid: amazon-batch:amazon-batch-api
-    name: Amazon Batch API
-    description: >-
-      The AWS Batch API enables programmatic management of batch computing
-      workloads, including creating and managing compute environments, job
-      queues, job definitions, scheduling policies, and submitting and
-      monitoring batch jobs at any scale. Supports single-node jobs, array
-      jobs for parameter sweeps, and multi-node parallel jobs for HPC.
-    humanURL: https://aws.amazon.com/batch/
-    baseURL: https://batch.amazonaws.com
-    tags:
-      - Batch Computing
-      - Compute
-      - HPC
-      - Job Scheduling
-      - Containers
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/openapi/amazon-batch-openapi.yml
-      - type: OpenAPI
-        url: https://api.apis.guru/v2/specs/amazonaws.com/batch/2016-08-10/openapi.json
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-schema/amazon-batch-schema.json
-      - type: JSONStructure
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-structure/batch-resource-structure.json
-      - type: JSONLD
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-ld/amazon-batch-context.jsonld
-      - type: SpectralRuleset
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/spectral/ruleset.yml
-      - type: Capabilities
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/capabilities/capabilities.yml
-      - type: Vocabulary
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/vocabulary/vocabulary.yml
-      - type: Pricing
-        url: https://aws.amazon.com/batch/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/batch/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/batch/faqs/
-      - type: UserGuide
-        url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
-      - type: APIReference
-        url: https://docs.aws.amazon.com/batch/latest/APIReference/Welcome.html
-      - type: CLIReference
-        url: https://docs.aws.amazon.com/cli/latest/reference/batch/
-      - type: Security
-        url: https://docs.aws.amazon.com/batch/latest/userguide/security.html
-      - type: Packages
-        url: packages/amazon-batch-packages.yml
-      - type: MCPServer
-        url: mcp/amazon-batch-mcp.yml
-      - type: LLMsTxt
-        url: llms/amazon-batch-llms.txt
-      - type: Overlay
-        url: overlays/amazon-batch-openapi-overlay.yaml
-      - type: Conformance
-        url: conformance/amazon-batch-conformance.yml
-      - type: ErrorCatalog
-        url: errors/amazon-batch-problem-types.yml
-      - type: Lifecycle
-        url: lifecycle/amazon-batch-lifecycle.yml
-    contact:
-      - FN: Amazon Web Services
-        url: https://aws.amazon.com/contact-us/
-    features:
-      - name: Managed Compute Environments
-        description: >-
-          Automatically provision, scale, and terminate EC2 On-Demand, Spot,
-          Fargate, or EKS compute resources based on job demand.
-      - name: Array Jobs
-        description: >-
-          Run N identical parallel job instances with unique array indices for
-          parameter sweeps, data parallelism, and large-scale simulations.
-      - name: Multi-Node Parallel Jobs
-        description: >-
-          Execute tightly-coupled HPC workloads (MPI) across multiple EC2
-          instances in a single coordinated job.
-      - name: Spot Instance Integration
-        description: >-
-          Run batch jobs on EC2 Spot Instances with automatic retry on
-          interruption, reducing compute costs by up to 90%.
-      - name: Fair-Share Scheduling
-        description: >-
-          Distribute compute resources equitably across users and teams using
-          configurable share weights and usage tracking.
-      - name: GPU Support
-        description: >-
-          Run GPU-accelerated workloads including machine learning training
-          and scientific simulations on GPU instance types.
-      - name: EKS Integration
-        description: >-
-          Run batch jobs on Amazon EKS clusters with Kubernetes-native
-          pod specifications and resource management.
-    useCases:
-      - name: Scientific Computing
-        description: >-
-          Run genomics, climate modeling, and other large-scale simulations
-          with HPC array jobs on managed compute environments.
-      - name: Data Processing Pipelines
-        description: >-
-          Process large datasets in parallel with array jobs and Spot Instances
-          for cost-efficient ETL and analytics workloads.
-      - name: Machine Learning Training
-        description: >-
-          Run distributed ML training jobs across GPU instances with
-          multi-node parallel job support.
-      - name: Media Transcoding
-        description: >-
-          Process large volumes of media files in parallel using containerized
-          transcoding jobs on managed compute environments.
-    integrations:
-      - name: Amazon ECR
-        description: Store and pull container images for batch job definitions from Amazon Elastic Container Registry
-      - name: Amazon S3
-        description: Read input data and write job output to Amazon S3 storage
-      - name: Amazon ECS
-        description: AWS Batch uses ECS under the hood for container orchestration on EC2 and Fargate
-      - name: Amazon EKS
-        description: Run batch jobs on Kubernetes clusters via Amazon Elastic Kubernetes Service
-      - name: AWS CloudWatch Logs
-        description: Stream job container logs to CloudWatch Logs for monitoring and debugging
-      - name: AWS Step Functions
-        description: Orchestrate multi-step workflows with AWS Batch jobs as workflow tasks
-      - name: Amazon EventBridge
-        description: Trigger batch jobs on schedule or in response to events
-    solutions:
-      - name: Cost-Optimized HPC
-        description: >-
-          Use Spot Instances with SPOT_CAPACITY_OPTIMIZED allocation strategy
-          to run HPC workloads at a fraction of On-Demand pricing.
-      - name: Serverless Batch
-        description: >-
-          Use Fargate compute environments to run batch jobs with no EC2
-          instance management and per-second billing.
+- aid: amazon-batch:amazon-batch-compute-environments-api
+  name: Amazon Batch Compute Environments API
+  description: Operations for managing compute environments
+  humanURL: https://aws.amazon.com/batch/
+  baseURL: https://batch.amazonaws.com
+  tags:
+  - Compute Environments
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-batch-compute-environments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-schema/amazon-batch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-structure/batch-resource-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-ld/amazon-batch-context.jsonld
+  - type: SpectralRuleset
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/spectral/ruleset.yml
+  - type: Capabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/capabilities/capabilities.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/vocabulary/vocabulary.yml
+  - type: Pricing
+    url: https://aws.amazon.com/batch/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/batch/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/batch/faqs/
+  - type: UserGuide
+    url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/batch/latest/APIReference/Welcome.html
+  - type: CLIReference
+    url: https://docs.aws.amazon.com/cli/latest/reference/batch/
+  - type: Security
+    url: https://docs.aws.amazon.com/batch/latest/userguide/security.html
+  - type: Packages
+    url: packages/amazon-batch-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-batch-llms.txt
+  - type: Conformance
+    url: conformance/amazon-batch-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-batch-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-batch-lifecycle.yml
+- aid: amazon-batch:amazon-batch-jobs-api
+  name: Amazon Batch Jobs API
+  description: Operations for submitting and managing jobs
+  humanURL: https://aws.amazon.com/batch/
+  baseURL: https://batch.amazonaws.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-batch-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-schema/amazon-batch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-structure/batch-resource-structure.json
+  - type: JSONLD
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/json-ld/amazon-batch-context.jsonld
+  - type: SpectralRuleset
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/spectral/ruleset.yml
+  - type: Capabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/capabilities/capabilities.yml
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/amazon-batch/refs/heads/main/vocabulary/vocabulary.yml
+  - type: Pricing
+    url: https://aws.amazon.com/batch/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/batch/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/batch/faqs/
+  - type: UserGuide
+    url: https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/batch/latest/APIReference/Welcome.html
+  - type: CLIReference
+    url: https://docs.aws.amazon.com/cli/latest/reference/batch/
+  - type: Security
+    url: https://docs.aws.amazon.com/batch/latest/userguide/security.html
+  - type: Packages
+    url: packages/amazon-batch-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-batch-llms.txt
+  - type: Conformance
+    url: conformance/amazon-batch-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-batch-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-batch-lifecycle.yml
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-batch-agentic-access.yml
