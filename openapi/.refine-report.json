@@ -1,0 +1,16 @@
+{
+  "provider": "amazon-batch",
+  "sources": [
+    "amazon-batch-compute-environments-api-openapi.yml",
+    "amazon-batch-jobs-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-batch-compute-environments-api-openapi.yml",
+    "amazon-batch-jobs-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
