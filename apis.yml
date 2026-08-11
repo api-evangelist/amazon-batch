@@ -147,6 +147,10 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-batch-lifecycle.yml
 common:
+  - type: MCPServer
+    url: mcp/amazon-batch-mcp.yml
+  - type: Overlay
+    url: overlays/amazon-batch-openapi-overlay.yaml
   - type: AgenticAccess
     url: agentic-access/amazon-batch-agentic-access.yml
   - type: VulnerabilityDisclosure
