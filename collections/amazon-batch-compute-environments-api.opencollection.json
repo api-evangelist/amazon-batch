@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Batch AWS Batch Compute Environments API",
+    "version": "2016-08-10"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Compute Environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Batch Create a compute environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://batch.{region}.amazonaws.com/v1/createcomputeenvironment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an AWS Batch compute environment."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

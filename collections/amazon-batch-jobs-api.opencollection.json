@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon Batch AWS Batch Compute Environments Jobs API",
+    "version": "2016-08-10"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon Batch Submit a batch job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://batch.{region}.amazonaws.com/v1/submitjob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submits an AWS Batch job from a job definition."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
